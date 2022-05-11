@@ -1,6 +1,8 @@
 #ifndef ASSIGNEE_HPP
 #define ASSIGNEE_HPP
 
+#include <string>
+
 using namespace std;
 
 class Assignee{

@@ -1,39 +1,49 @@
 #ifndef TASK_HPP
 #define TASK_HPP
+#include <string>
+#include "assignee.hpp"
+#include "time.h"
+#include "date.h"
 
-class task {
+using namespace std;
+
+class Task {
     private:
-	int taskID;
-	string title;
-	string description;
-	string classification;
-	string priority;
-	Time duration;			//Undefined variable
-	Date dueDate;			//Undefined variable
-	string location;
-	list<Assignee> assigneeList;	//Undefined variable
-	
+        int taskID;
+        string title;
+        string description;
+        string classification;
+        string priority;
+        Time duration;         		
+        Date dueDate;          		//Undefined
+        string location;
+        list<Assignee> assigneeList;	//Undefined
+
 
     public:
-	void setID(int);
-	int getID();
-	void setTitle(string);
-	string getTitle();
-	void setDescription(string);
-	string getDescription();
-	void setClassification(string);
-	string getClassification();
-	void setPriority(string);
-	string getPriority();
-	void setDuration(Time);
-	Time getDuration();
-	void setDueDate(Date);
-	Date getDueDate();
-	void setLocation(string);
-	string getLocation();
-	void addAssignee();
-	void deleteAssignee();
-	void displayTask();
+        Task();
+	Task(int inputTaskID, int inputTitle);
+        Task(int inputTaskID, string inputTitle, string inputDescription, string inputClassification, string inputPriority, Time inputDuration, Date inputDueDate, string inputLocation, list<Assignee> inputAssigneeList);
+        void setID(int);
+        int getID();
+        void setTitle(string);
+        string getTitle();
+        void setDescription(string);
+        string getDescription();
+        void setClassification(string);
+        string getClassification();
+        void setPriority(string);
+        string getPriority();
+        void setDuration(Time);
+        Time getDuration();
+        void setDueDate(Date);
+        Date getDueDate();
+        void setLocation(string);
+        string getLocation();
+        void addAssignee();
+        void deleteAssignee();
+        void displayTask();
 };
 
 #endif //TASK_HPP
+
