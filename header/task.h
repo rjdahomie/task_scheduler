@@ -15,6 +15,8 @@ class task {
 	
 
     public:
+	Task(int task, string task title);
+	Task(int taskID, string title, string description, string classification, string priority, Time duration, Date dueDate, string location, list<Assignee> assigneeList);
 	void setID(int);
 	int getID();
 	void setTitle(string);
