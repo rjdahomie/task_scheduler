@@ -1,4 +1,4 @@
-fndef TASK_HPP
+#ifndef TASK_HPP
 #define TASK_HPP
 #include <string>
 //#include "assignee.hpp"
@@ -7,22 +7,22 @@ fndef TASK_HPP
 
 using namespace std;
 
-class task {
+class Task {
     private:
         int taskID;
         string title;
         string description;
         string classification;
         string priority;
-        Time duration;         		//Undefned
-        Date dueDate;          		//Undesined
+        Time duration;         		
+        Date dueDate;          		//Undefined
         string location;
         list<Assignee> assigneeList;	//Undefined
 
 
     public:
         Task();
-        Task(int inputTask, string inputTitle);
+	Task(int inputTaskID, int inputTitle);
         Task(int inputTaskID, string inputTitle, string inputDescription, string inputClassification, string inputPriority, Time inputDuration, Date inputDueDate, string inputLocation, list<Assignee> inputAssigneeList);
         void setID(int);
         int getID();
