@@ -1,6 +1,7 @@
 #ifndef TASK_HPP
 #define TASK_HPP
 #include <string>
+#include <list>
 #include "assignee.hpp"
 #include "time.h"
 #include "date.h"
@@ -15,9 +16,9 @@ class Task {
         string classification;
         string priority;
         Time duration;         		
-        Date dueDate;          		//Undefined
+        Date dueDate;
         string location;
-        list<Assignee> assigneeList;	//Undefined
+        list<Assignee> assigneeList;
 
 
     public:
