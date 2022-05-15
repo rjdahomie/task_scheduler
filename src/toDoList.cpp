@@ -1,5 +1,5 @@
-#include "toDoList.h"
-#include "task.h"
+#include "../header/toDoList.h"
+#include "../header/task.h"
 
 toDoList::toDoList(){
 	list<Task> task = NULL;
