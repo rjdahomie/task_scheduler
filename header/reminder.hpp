@@ -2,6 +2,7 @@
 #define REMINDER_HPP
 
 #include "task.h"
+#include "date.h"
 #include <string>
 
 using namespace std;
