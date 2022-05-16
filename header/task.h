@@ -10,16 +10,17 @@ using namespace std;
 
 class Task {
     private:
-        int taskID;
-        string title;
         string description;
         string classification;
         string priority;
         Time duration;         		
-        Date dueDate;
         string location;
         list<Assignee> assigneeList;
 
+    protected:
+	int taskID;
+	string title;
+	Date dueDate;
 
     public:
         Task();
