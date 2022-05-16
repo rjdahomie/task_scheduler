@@ -41,3 +41,7 @@ int Date::getYear(){
 void Date::displayDate(){
 	cout << "Date: " << day << "/" << month << "/" << year << endl;
 }
+
+int Date::convertDate(){
+	return (year * 360) + (month * 30) + (day);
+}
