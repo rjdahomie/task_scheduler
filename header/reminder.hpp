@@ -29,7 +29,7 @@ class Reminder : public Task{
 		void addReminder();
 		void editReminder();
 		void deleteReminder();
-		void checkRemind(); // Will be implemented once Time and Date are fully made.
+		void checkRemind(Date curr, Date due);
 		void displayReminder();
 };
 

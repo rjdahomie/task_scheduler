@@ -102,6 +102,10 @@ void Reminder::deleteReminder(Reminder R){
 	delete R;
 }
 
+void Reminder::checkRemind(Date curr, Date due){
+	cout << "Days left till due: " << due.convertDate() - curr.convertDate() << endl;
+}
+
 void Reminder::displayReminder(){
 	cout << reminderTitle << ": Due in " << remind << " days." << endl;
 }
