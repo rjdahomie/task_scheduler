@@ -1,25 +1,32 @@
 #ifndef REMINDER_HPP
-#ifndef REMINDER_HPP
 #define REMINDER_HPP
+
+#include "task.h"
+#include <string>
 
 using namespace std;
 
-class Reminder {
+class Reminder : public Task{
 	private:
 		int reminderID;
 		bool active;
 		int remind;
+		string reminderTitle;
 	public:
 		Reminder();
-		Reminder(int newReminderID, int newRemind, bool status);
+		Reminder(int newReminderID, string newTitle, int newRemind, bool status);
+		Reminder(Task T);
+		~Reminder();
 		void setReminderID(int);
+		void setTitle(string);
 		void setStatus(bool);
 		void setDay(int);
 		int getReminderID();
+		string getTitle();
 		bool getStatus();
 		int getDays();
 		void addReminder();
-		void editReminder(); //Not sure how to implement or why when we have setters.
+		void editReminder();
 		void deleteReminder();
 		void checkRemind(); // Will be implemented once Time and Date are fully made.
 		void displayReminder();
