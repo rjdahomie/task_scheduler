@@ -22,7 +22,7 @@ Reminder::Reminder(int newID, string remindTitle, int time, bool activity){
 Reminder::Reminder(Task T){
 	reminderID = T.getID();
 	reminderTitle = T.getTitle();
-	remind = time;
+	remind = T.getDate();
 	active = true;
 
 Reminder::~Reminder(){
