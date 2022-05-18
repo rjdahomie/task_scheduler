@@ -1,5 +1,6 @@
 #include "../header/task.h"
 #include <string>
+#include <list>
 
 using namespace std;
 
@@ -9,35 +10,42 @@ Task::Task(){
     description = "";
     classification = "";
     priority = "";
-    //duration = 0; ??
-    //dueDate = 0; ??
+    duration = new Time();
+    dueDate = new Date();
     location = "";
-    //assigneeList = 0 ??
+    assigneeList = new list<Assignee>;
 }
 
-Task::Task(int inputTaskID, int inputTitle){
-	taskID = inputTaskID;
-	title = inputTitle;
-	description = "";
-	classification = "";
-	priority = "";
-	//duration = 0; ??
-	//dueDate = 0; ??
-	location = "";
-	//assigneeList = 0 ??
+Task::Task(int inputTaskID, string inputTitle){
+    taskID = inputTaskID;
+    title = inputTitle;
+    description = "";
+    classification = "";
+    priority = "";
+    duration = new Time();
+    dueDate = new Date();
+    location = "";
+    assigneeList = new list<Assignee>;
 }
 
-Task::Task(int inputTaskID, string inputTitle, string inputDescription, string inputClassification, string inputPriority, Time inputDuration, Date inputDueDate, string inputLocation, list<Assignee> inputAssigneeList){
-        taskID = inputTaskID;
-        title = inputTitle;
-        description = inputDescription;
-        classification = inputClassification;
-        priority = inputPriority;
-        duration = inputDuration;
-        dueDate = inputDueDate;
-        location = inputLocation;
-        assigneeList = inputAssigneeList;
-} 
+Task::Task(int inputTaskID, string inputTitle, string inputDescription, string inputClassification, string inputPriority, Time *inputDuration, Date *inputDueDate, string inputLocation, list<Assignee> *inputAssigneeList){
+    taskID = inputTaskID;
+    title = inputTitle;
+    description = inputDescription;
+    classification = inputClassification;
+    priority = inputPriority;
+    duration = inputDuration;
+    dueDate = inputDueDate;
+    location = inputLocation;
+    assigneeList = inputAssigneeList;
+}
+
+Task::~Task(){
+    //Might need to go through the list and delete all one by one
+    delete[] assigneeList;
+    delete duration;
+    delete dueDate;
+}
 
 void Task::setID(int inputID){
     taskID = inputID;
@@ -79,20 +87,20 @@ string Task::getPriority(){
     return priority;
 }
 
-void Task::setDuration(Time inputTime){
+void Task::setDuration(Time *inputTime){
     duration = inputTime;
 }
 
 Time Task::getDuration(){
-    return duration;
+    return *duration;
 }
 
-void Task::setDueDate(Date inputDate){
+void Task::setDueDate(Date *inputDate){
     dueDate = inputDate;
 }
 
 Date Task::getDueDate(){
-    return dueDate;
+    return *dueDate;
 }
 
 void Task::setLocation(string inputLocation){
@@ -104,7 +112,7 @@ string Task::getLocation(){
 }
 
 void Task::addAssignee(){
-
+    
 }
 
 void Task::deleteAssignee(){
@@ -112,5 +120,5 @@ void Task::deleteAssignee(){
 }
 
 void Task::displayTask(){
-    
+    cout << getID() << " | " << getTitle();
 }
