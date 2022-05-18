@@ -2,13 +2,10 @@
 #define DATE_HPP
 
 class Date{
-    private:
+    public:
         int day;
         int month;
         int year;
-
-
-    public:
         Date();
         Date(int inputDay, int inputMonth, int inputYear);
         void setDay(int);
@@ -17,6 +14,7 @@ class Date{
         int getDay();
         int getMonth();
         int getYear();
+	int convertDate();
 };
 
 #endif
