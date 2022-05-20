@@ -112,11 +112,33 @@ string Task::getLocation(){
 }
 
 void Task::addAssignee(){
-    
+    cout << "Enter the name of the new assignee: " << endl;
+    string name;
+    cin >> name;
+    Assignee person(name);
+    assigneeList->push_back(person);
+    cout << "Added." << endl;
 }
 
 void Task::deleteAssignee(){
+    cout << "Enter the name of the assignee you want removed: " << endl;
+    string name;
+    cin >> name;
+    list<Assignee>::iterator it;
+    for (it = assigneeList->begin(); it != assigneeList->end(); ++it){
+        if(it->getName() == name){
+	    it = assigneeList->erase(it);
+	}
+    }
+    cout << "\n";
+}
 
+void Task::displayAssignees(){
+    list<Assignee>::iterator it;
+    for (it = assigneeList->begin(); it != assigneeList->end(); ++it){
+        cout << "|" << it-> getName();
+    }
+    cout << "\n";
 }
 
 void Task::displayTask(){
