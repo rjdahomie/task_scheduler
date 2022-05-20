@@ -15,6 +15,7 @@ class Date{
         int getMonth();
         int getYear();
 	int convertDate();
+	void displayDate();
 };
 
 #endif
