@@ -10,12 +10,13 @@ class time{
 
 
         public:
-           void setDay(int);
-           void setHour(int);
-           void setMinute(int);
+           void setDay(int inputDay);
+           void setHour(int inputHour);
+           void setMinute(int inputMinute);
            int getDay();
            int getHour();
-           int getMinute()
+           int getMinute();
+	   void displayDate();
 };
 
 #endif
