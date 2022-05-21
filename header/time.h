@@ -7,15 +7,16 @@ class Time{
         int hour;
         int minute;
 
-        public:
-           void setDay(int inputDay);
-           void setHour(int inputHour);
-           void setMinute(int inputMinute);
-           int getDay();
-           int getHour();
-           int getMinute();
-	   void displayDate();
 
+    public:
+        Time();
+        Time(int inputDay, int inputHour, int inputMinute);
+        void setDay(int);
+        void setHour(int);
+        void setMinute(int);
+        int getDay();
+        int getHour();
+        int getMinute();
 };
 
 #endif
