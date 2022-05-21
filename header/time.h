@@ -1,13 +1,11 @@
 #ifndef TIME_HPP
 #define TIME_HPP
 
-
-class time{
-        private:
-           int time;
-           int hour;
-           int minute;
-
+class Time{
+    private:
+        int day;
+        int hour;
+        int minute;
 
         public:
            void setDay(int inputDay);
@@ -17,7 +15,7 @@ class time{
            int getHour();
            int getMinute();
 	   void displayDate();
+
 };
 
 #endif
-
