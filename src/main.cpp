@@ -19,6 +19,7 @@ void displayMenu(){
 int main(){
 
     int choice;
+    int menuChoice;
     cout << "What is the date today? " << endl;
     int temp1, temp2, temp3;
     cout << "Day: ";
@@ -30,22 +31,100 @@ int main(){
     cout << "Year: ";
     cin >> temp3;
     cout << endl;
-   // Date currDate(temp1, temp2, temp3);
+    Date currDate(temp1, temp2, temp3);
     displayMenu();
 
     cin >> choice;
 
     if (choice = 1){ 
+    
+    cout << "Welcome to Add Task" << endl;
+    cout << "To add a Task press 1" << endl;
+    cout << "To go back to the menu press 2" << endl;
+    cin >> menuChoice;
+
+   	 if (menuChoice = 1) {
+    	}
+   	 else if (menuChoice = 2){
+   	 break;
+    	}
     }
+
     if (choice = 2){
+
+    cout << "Welcome to Edit Task" << endl;
+    cout << "To edit a Task press 1" << endl;
+    cout << "To go back to the menu press 2" << endl;
+    cin >> menuChoice;
+
+	    if (menuChoice = 1) {
+	    }
+	    else if (menuChoice = 2){
+	    break;
+	    }
     }
+
     if (choice = 3){
+
+    cout << "Welcome to Remove Task" << endl;
+    cout << "To remove a Task press 1" << endl;
+    cout << "To go back to the menu press 2" << endl;
+    cin >> menuChoice;
+
+   	 if (menuChoice = 1) {
+    	}
+   	 else if (menuChoice = 2){
+   	 break;
+	    }
     }
+
     if (choice = 4){
+
+    cout << "Welcome to Add Reminder" << endl;
+    cout << "To add a Reminder press 1" << endl;
+    cout << "To go back to the menu press 2" << endl;
+    cin >> menuChoice;
+
+         if (menuChoice = 1) {
+        }
+         else if (menuChoice = 2){
+         break;
+            }
+
     }
+
     if (choice = 5){
+
+    cout << "Welcome to Edit Reminder" << endl;
+    cout << "To edit a Reminder press 1" << endl;
+    cout << "To go back to the menu press 2" << endl;
+    cin >> menuChoice;
+
+         if (menuChoice = 1) {
+        }
+         else if (menuChoice = 2){
+         break;
+            }
+
     }
+
     if (choice = 6){
+
+    cout << "Welcome to Remove Reminder" << endl;
+    cout << "To remove a Reminder press 1" << endl;
+    cout << "To go back to the menu press 2" << endl;
+    cin >> menuChoice;
+
+         if (menuChoice = 1) {
+        }
+         else if (menuChoice = 2){
+         break;
+            }
+
+    }
+
+    else{
+    break;
     }
 
     return 0;
