@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include "../header/taskSorterStrategy.hpp"
+#include "../header/idSorted.hpp"
 
 using namespace std;
 void displayMenu(){
@@ -19,13 +20,16 @@ void displayMenu(){
 
 int main(){
     toDoList *tempList = new toDoList();
-    Task newTask;
-    tempList->addTask(newTask);
+    Task newTask1;
+    Task newTask2;
+    tempList->addTask(newTask1);
+    tempList->addTask(newTask2);
     tempList->displayTasks();
     cout << "_____________________________________________________" << endl;
     //Everything works up to this point
-
-    tempList->setTaskSort(new IdSorted(tempList)); //??????
+    tempList->setTaskSort(new IdSorted(tempList));
+    tempList->taskSorter();
+    //Ignore past this line for now
 
 
 

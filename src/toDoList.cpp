@@ -4,7 +4,12 @@
 toDoList::toDoList(){
 	taskList = new list<Task>;
 }
-
+/*
+toDoList::toDoList(TaskSorterStrategy s) {
+        taskList = new list<Task>;
+        strategy = s;
+}
+*/
 void toDoList::addTask(Task &newTask){
 	int inputID, year, month, day, hour, minute;
 	string inputTitle, inputDescription, inputClassification, inputPriority, inputLocation;
@@ -60,6 +65,7 @@ void toDoList::addTask(Task &newTask){
 	for (int i = 0; i < assigneeNum; i++){
 	    newTask.addAssignee();
 	}
+	size++;
 	taskList->push_back(newTask);
 }
 
@@ -148,6 +154,7 @@ void toDoList::deleteTask()
     	for (it = taskList->begin(); it != taskList->end(); ++it){
         	if(it->getID() == tempID){
 	    		it = taskList->erase(it);
+			size--;
 		}
     	}
     cout << "\n";

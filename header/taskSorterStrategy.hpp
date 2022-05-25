@@ -7,10 +7,7 @@ public:
     virtual ~TaskSorterStrategy() {
         /* ... */
     }
-    virtual void sortTasks(list<Task> *inputTaskList) = 0;
-    //Might need to add taskList as a parameter
-    //might need to add a const at the end
-    //might need to pass in by reference
+    virtual void sortTasks() = 0;
 };
 
 #endif //__SELECT_HPP__

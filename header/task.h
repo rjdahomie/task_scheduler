@@ -46,6 +46,7 @@ class Task {
         string getLocation();
         void addAssignee();
         void deleteAssignee();
+	void displayAssignees();
         void displayTask();
 };
 

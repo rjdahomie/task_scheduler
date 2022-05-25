@@ -10,17 +10,16 @@ class taskSorterStrategy;
 class toDoList {
     private:
         list<Task> *taskList;
-
-	// STRAT CHANGES:
+	int size=0;
+	// STRATEGY RELATED:
 	TaskSorterStrategy *strategy;
-	// END OF START CHANGES
+	// END OF STARTEGY RELATED
 
     public:
 	toDoList();
 	toDoList(list<Task> *taskList);
-
-
         //toDoList(taskSorterStrategy *s=nullptr);
+	
 	~toDoList(){
 	    delete this->strategy;
 	}	
@@ -32,16 +31,35 @@ class toDoList {
         void deleteTask();
         void displayTasks();
 
-
-
-	//START OF STRAT CHANGES
+	int getSize(){
+	    return size;
+	}
+	
+	list<Task> getList(){
+	    return *taskList;
+	}
+	
+	void displaySortedByID(){
+	    list<Task>::iterator it;
+	    for(int i = 0; i < 20; i++){
+	    	for(it = taskList->begin(); it != taskList->end(); ++it){
+		    if(it->getID() == i){
+		        it->displayTask();
+			cout << "\n";
+		    }	
+		}
+	    }
+	}
+	
+	//START OF STRATEGY RELATED:
 	void taskSorter(){
-	    strategy->sortTasks(taskList);
+	    this->strategy->sortTasks();
 	}
-	void setTaskSort(TaskSorterStrategy *news) {
-	    this->strategy = news;
+
+	void setTaskSort(TaskSorterStrategy *newStrategy) {
+	    this->strategy = newStrategy;
 	}
-	//END OF STRAT CHANGES
+	//END OF STRATEGY RELATED
 };
 
 #endif // TODOLIST_HPP
