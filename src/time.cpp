@@ -4,19 +4,19 @@
 using namespace std;
 
 Time::Time(){
-	time = 0;
+	day = 0;
 	hour = 0;
 	minute = 0;
 }
 
 Time::Time(int inputDay, int inputHour, int inputMinute){
-	time = inputDay;
+	day = inputDay;
 	hour = inputHour;
 	minute = inputMinute;
 }
 
 void Time::setDay(int inputDay){
-	time = inputDay;
+	day = inputDay;
 }
 
 void Time::setHour(int inputHour){
@@ -28,7 +28,7 @@ void Time::setMinute(int inputMinute){
 }
 
 int Time::getDay(){
-	return time;
+	return day;
 }
 
 int Time::getHour(){
