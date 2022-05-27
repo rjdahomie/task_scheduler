@@ -22,15 +22,17 @@ int main(){
     toDoList *tempList = new toDoList();
     Task newTask1;
     Task newTask2;
+    Task newTask3;
     tempList->addTask(newTask1);
     tempList->addTask(newTask2);
+    tempList->addTask(newTask3);
     tempList->displayTasks();
     cout << "_____________________________________________________" << endl;
     //Everything works up to this point
     tempList->setTaskSort(new IdSorted(tempList));
     tempList->taskSorter();
     //Ignore past this line for now
-
+    cout << "THIS WORKED";
 
 
 

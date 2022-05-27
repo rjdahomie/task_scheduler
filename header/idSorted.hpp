@@ -30,11 +30,22 @@ class IdSorted : public TaskSorterStrategy
 		cout << "Task List is empty" << endl;
 	    } else if (temp.size() == 1){
 		currList->displayTasks();
-	    } else if (temp.size() > 1){
+	    } else {
 		currList->displaySortedByID();
+		//list<Task>::iterator it;
+            	//cout << taskList->size() << endl;
+                /*
+		for(int i = 0; i < 20; i++){
+                    for(it = currList->getList()->begin(); it != currList->getList()->end(); ++it){
+                        cout << "I: " << i << " " << "ID: " << it->getID() << endl;
+                           if(it->getID() == i){
+                               it->displayTask();
+                               cout << "\n";
+                           }                                                                                                                                                             }                                                                                                                                  cout << "EXITED 2nd" << endl;                                                                                                                                                     }
+			cout << "EXITED 1st" << endl;
+		//cout << endl << "PASSED Sorted ID with no seg fault??";
+		*/
 	    }
-	
-
 
 	}
 
