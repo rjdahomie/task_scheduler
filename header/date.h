@@ -1,6 +1,8 @@
 #ifndef DATE_HPP
 #define DATE_HPP
 
+#include <string>
+
 class Date{
     public:
         int day;
@@ -15,7 +17,7 @@ class Date{
         int getMonth();
         int getYear();
 	int convertDate();
-	void displayDate();
+	std::string displayDate();
 };
 
 #endif
