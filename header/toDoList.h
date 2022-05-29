@@ -6,11 +6,12 @@
 
 class toDoList {
     private:
-        list<Task> *taskList; //undefine variable!!!!!!
+        list<Task> *taskList;
+	int size = 0;
  
     public:
         toDoList();
-        toDoList(list<Task> *taskList); //undefine variable!!!!!!
+        toDoList(list<Task> *taskList);
 
         void addTask();
         void editTask(Task);
