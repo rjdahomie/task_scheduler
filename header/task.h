@@ -52,6 +52,7 @@ class Task {
 	void addReminder();
 	void editReminder();
         void displayTask();
+	void displayReminders(Date inputCurrDate);
 };
 
 #endif //TASK_HPP

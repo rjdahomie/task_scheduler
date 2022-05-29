@@ -10,7 +10,7 @@ ADD_EXECUTABLE(main
     src/toDoList.cpp
     src/reminder.cpp
 
-    src/mymain.cpp
+    src/main.cpp
 )
 
 ADD_LIBRARY(date header/date.h src/date.cpp)

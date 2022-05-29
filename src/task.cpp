@@ -189,3 +189,13 @@ void Task::displayTask(){
     cout << getID() << " | " << getTitle() << "|"; 
     remind->displayReminder();
 }
+
+void Task::displayReminders(Date inputCurrDate){
+    int daysLeft = this->getDueDate().convertDate() - inputCurrDate.convertDate();
+    if((remind->getStatus() == true) && (daysLeft <= remind->getDay())){
+        cout << remind->getTitle() << " | " << "Due in : "; 
+    }
+}
+
+
+

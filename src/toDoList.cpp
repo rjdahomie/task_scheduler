@@ -1,16 +1,16 @@
 #include "../header/toDoList.h"
 #include "../header/task.h"
 
-toDoList::toDoList(){
+ToDoList::ToDoList(){
 	taskList = new list<Task>;
 }
 /*
-toDoList::toDoList(TaskSorterStrategy s) {
+ToDoList::ToDoList(TaskSorterStrategy s) {
         taskList = new list<Task>;
         strategy = s;
 }
 */
-void toDoList::addTask(Task &newTask){
+void ToDoList::addTask(Task &newTask){
 	int inputID, year, month, day, hour, minute;
 	string inputTitle, inputDescription, inputClassification, inputPriority, inputLocation;
 
@@ -69,7 +69,7 @@ void toDoList::addTask(Task &newTask){
 	taskList->push_back(newTask);
 }
 
-void toDoList::editTask(Task &curTask){
+void ToDoList::editTask(Task &curTask){
 	int selection, inputID, year, month, day, hour, minute;
 	string inputTitle, inputDescription, inputClassification, inputPriority, inputLocation;
 
@@ -145,7 +145,7 @@ void toDoList::editTask(Task &curTask){
 	}
 }
 
-void toDoList::deleteTask()
+void ToDoList::deleteTask()
 {
 	cout << "Enter the ID of the task you want removed: " << endl;
     	int tempID;
@@ -160,12 +160,23 @@ void toDoList::deleteTask()
     cout << "\n";
 }
 
-void toDoList::displayTasks()
+void ToDoList::displayTasks()
 {
     	cout << "Your Tasks: " << endl;
     	list<Task>::iterator it;
     	for (it = taskList->begin(); it != taskList->end(); ++it){
         	it->displayTask();
+		cout << "\n";
+    	}
+    cout << "\n";
+}
+
+void ToDoList::displayReminders(Date inputCurrDate)
+{
+    	cout << "Your Reminders: " << endl;
+    	list<Task>::iterator it;
+    	for (it = taskList->begin(); it != taskList->end(); ++it){
+        	it->displayReminders(inputCurrDate);
 		cout << "\n";
     	}
     cout << "\n";

@@ -5,9 +5,9 @@
 #include "task.h"
 #include "taskSorterStrategy.hpp"
 
-class taskSorterStrategy;
+class TaskSorterStrategy;
 
-class toDoList {
+class ToDoList {
     private:
         list<Task> *taskList;
 	int size=0;
@@ -16,11 +16,11 @@ class toDoList {
 	// END OF STARTEGY RELATED
 
     public:
-	toDoList();
-	toDoList(list<Task> *taskList);
+	ToDoList();
+	ToDoList(list<Task> *taskList);
         //toDoList(taskSorterStrategy *s=nullptr);
 	
-	~toDoList(){
+	~ToDoList(){
 	    //iterate
 	  //  list<Task>::iterator it;
 	  //  for(auto&& t : taskList) {
@@ -41,6 +41,7 @@ class toDoList {
         void editTask(Task &curTask);
         void deleteTask();
         void displayTasks();
+	void displayReminders(Date inputCurrDate);
 
 	int getSize(){
 	    return size;
