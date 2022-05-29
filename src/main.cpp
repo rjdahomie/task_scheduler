@@ -1,9 +1,9 @@
-//#include "../header/assignee.hpp"
-//#include "../header/date.h"
+#include "../header/assignee.hpp"
+#include "../header/date.h"
 //#include "../header/reminder.hpp"
-//#include "../header/task.h"
-//#include "../header/time.h"
-//#include "../header/toDoList.h"
+#include "../header/task.h"
+#include "../header/time.h"
+#include "../header/toDoList.h"
 #include <iostream>
 #include <string>
 
@@ -44,9 +44,13 @@ int main(){
     cin >> menuChoice;
 
    	 if (menuChoice = 1) {
+        
+	toDoList toDoList1;
+	toDoList1.list<Task>;
+	toDoList1.addTask();
     	}
-   	 else if (menuChoice = 2){
-   	 break;
+  	 else if (menuChoice = 2){
+   	 return 0;
     	}
     }
 
@@ -60,7 +64,8 @@ int main(){
 	    if (menuChoice = 1) {
 	    }
 	    else if (menuChoice = 2){
-	    break;
+
+	    return 0;
 	    }
     }
 
@@ -74,7 +79,7 @@ int main(){
    	 if (menuChoice = 1) {
     	}
    	 else if (menuChoice = 2){
-   	 break;
+   	 return 0;
 	    }
     }
 
@@ -88,7 +93,7 @@ int main(){
          if (menuChoice = 1) {
         }
          else if (menuChoice = 2){
-         break;
+            return 0;
             }
 
     }
@@ -103,7 +108,7 @@ int main(){
          if (menuChoice = 1) {
         }
          else if (menuChoice = 2){
-         break;
+            return 0;
             }
 
     }
@@ -118,13 +123,13 @@ int main(){
          if (menuChoice = 1) {
         }
          else if (menuChoice = 2){
-         break;
+            return 0;
             }
 
     }
 
     else{
-    break;
+    return 0;
     }
 
     return 0;
