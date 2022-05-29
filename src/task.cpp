@@ -80,7 +80,9 @@ string Task::getClassification(){
 }
 
 void Task::setPriority(string inputPriority){
-    priority = inputPriority;
+    string temp = inputPriority;
+    transform(temp.begin(), temp.end(),temp.begin(), ::toupper);
+    priority = temp;
 }
 
 string Task::getPriority(){

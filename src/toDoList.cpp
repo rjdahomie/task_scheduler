@@ -27,7 +27,7 @@ void toDoList::addTask(){
 	cin >> inputDescription;
 	newTask.setDescription(inputDescription);
 
-	cout << "\nPlease enter task priority: ";
+	cout << "\nPlease enter task priority (HIGH/MEDIUM/LOW): ";
 	cin >> inputPriority;
 	newTask.setPriority(inputPriority);
 
@@ -63,7 +63,7 @@ void toDoList::editTask(Task curTask){
 	string inputTitle, inputDescription, inputClassification, inputPriority, inputLocation;
 
 	cout << "Please enter a number for edit.\n"
-		<< "1.ID 2.title 3.description 4.priority 5.due time 6.location\n";
+		<< "1.ID \n2.title \n3.description \n4.priority \n5.due time \n6.location\n";
 	cin >> selection;
 	
 	if (selection == 1) {
@@ -132,4 +132,29 @@ void toDoList::displayTasks(Task curTask)
         cout << "Duration: " << curTask.getDuration() << endl;
         cout << "Due Date: " << curTask.getDueDate() << endl;
         cout << "Location: " <<  curTask.getLocation() << endl;
+}
+
+void displaySortedByPriority() { 
+	list<Task>::iterator it;
+	for (int i = 1; i < size; i++) {
+		for (it = taskList->begin(); it != taskList->end(); ++it) {
+			if (it->getPriority() == "HIGH") {
+				it->displayTask();
+				cout << "\n";
+				break;
+			}
+			else if (it->getPriority() == "MEDIUM") {
+				it->displayTask();
+				cout << "\n";
+				break;
+			}
+			else if (it->getPriority() == "LOW") {
+				it->displayTask();
+				cout << "\n";
+				break;
+			}
+			else
+				break;
+		}
+	}
 }

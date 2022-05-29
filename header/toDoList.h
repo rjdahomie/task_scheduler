@@ -16,6 +16,10 @@ class toDoList {
         void editTask(Task);
         void deleteTask(Task &);
         void displayTasks(Task);
+
+	void displaySortedByID();
+	void displaySortedByPriority();
+	void displaySortedByDueDate();
 };
 
 #endif // TODOLIST_HPP
