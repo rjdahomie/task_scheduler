@@ -41,8 +41,10 @@ void ToDoList::addTask(Task &newTask){
 	cin >> month;
 	cout << endl << "Enter year: ";
 	cin >> year;
-	Date tempDate(day, month, year);
-	newTask.setDueDate(&tempDate);
+	Date *tempDate = new Date(day, month, year);
+	cout << "Due ";
+	tempDate->displayDate();
+	newTask.setDueDate(tempDate);
 
 	cout << "\nPlease enter task duration: " << endl;
 	cout << "How many days will this task take: ";
@@ -51,8 +53,8 @@ void ToDoList::addTask(Task &newTask){
 	cin >> hour;
 	cout << endl << "How many minutes will this task take you: ";
 	cin >> minute;
-	Time tempTime(day, hour, minute);
-	newTask.setDuration(&tempTime);
+	Time *tempTime = new Time(day, hour, minute);
+	newTask.setDuration(tempTime);
 	
 	cout << "\nPlease enter task location: ";
 	cin >> inputLocation;
@@ -116,12 +118,13 @@ void ToDoList::editTask(){
 		tempIt->setPriority(inputPriority);
 	}
 	else if (selection == 6) {
-		cout << "\nPlease enter task Due time: ";
+		cout << "\nPlease enter task due date: ";
 		cout << "\nEnter day: ";
 		cin >> day;
 		cout << "\nEnter month: ";
 		cin >> month;
 		cout << "\nEnter year: ";
+		cin >> year;
 		Date tempDate(day, month, year);
 		tempIt->setDueDate(&tempDate);
 	}

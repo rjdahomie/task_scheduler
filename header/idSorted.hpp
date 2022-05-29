@@ -12,10 +12,10 @@ class IdSorted : public TaskSorterStrategy
 {
     protected:
         //variables if any
-        toDoList *currList;
+        ToDoList *currList;
 
     public:
-	IdSorted(toDoList *inputList){
+	IdSorted(ToDoList *inputList){
 	   currList = inputList;
 	}
 

@@ -4,6 +4,8 @@
 #include "../header/task.h"
 #include "../header/time.h"
 #include "../header/toDoList.h"
+#include "../header/taskSorterStrategy.hpp"
+#include "../header/idSorted.hpp"
 #include <iostream>
 #include <string>
 
@@ -13,6 +15,8 @@ using namespace std;
 Date *currDate = new Date();
 
 void displayMenu(){
+    cout << "Today's ";
+    currDate->displayDate();
     cout << "Menu:  1. Add Task             4. Add Reminder"          << endl;
     cout << "       2. Edit Task            5. Edit Reminder"         << endl;
     cout << "       3. Remove Task          6. Display"               << endl;
@@ -42,7 +46,7 @@ void mainMenu(ToDoList* inputToDoList){
     }
     else if (menuChoice == 6){
 	cout << "Diplay methods: " << endl;
-	cout << "1. Task by latest Addition" << endl;
+	cout << "1. Task by earliest Addition" << endl;
 	cout << "2. Task by sorted ID" << endl;
 	cout << "3. Task by sorted priority" << endl;
 	cout << "4. Task by sorted dueDate" << endl;
@@ -53,7 +57,8 @@ void mainMenu(ToDoList* inputToDoList){
 	if(menuChoice == 1){
 	    inputToDoList->displayTasks();
 	} else if (menuChoice == 2){
-
+	    inputToDoList->setTaskSort(new IdSorted(inputToDoList));
+	    inputToDoList->taskSorter();
 	} else if (menuChoice == 3){
 
 	} else if (menuChoice == 4){
@@ -100,7 +105,6 @@ int main(){
     currDate->setDay(temp1);
     currDate->setMonth(temp2);
     currDate->setYear(temp3);
-    currDate->displayDate();
     //----------------------------------------------
     
     //TodoList initilization

@@ -190,12 +190,24 @@ void Task::editReminder(){
 }
 
 void Task::displayTask(){
-    cout << getID() << " | " << getTitle();
+    cout << getID() << " | " << getTitle() << " | Due ";
+    getDueDate().displayDate();
 }
 
 void Task::displayReminder(Date inputCurrDate){
-    int daysLeft = this->getDueDate().convertDate() - inputCurrDate.convertDate();
+    int day1 = this->getDueDate().getDay();
+    int month1 = this->getDueDate().getMonth();
+    int year1 = this->getDueDate().getYear();
+    int day2 = inputCurrDate.getDay();
+    int month2 = inputCurrDate.getMonth();
+    int year2 = inputCurrDate.getYear();
+    int daysLeft = 0;
+    daysLeft = inputCurrDate.difference_of_days(day1, month1, year1, day2, month2, year2);
+
+
+
+    //int daysLeft = this->getDueDate().convertDate() - inputCurrDate.convertDate();
     if((remind->getStatus() == true) && (daysLeft <= remind->getDay())){
-        cout << remind->getTitle() << " | " << "Due in : "; 
+        cout << "You have a reminder " << remind->getTitle() << " | " << "Due in : " << daysLeft << " days.";
     }
 }
