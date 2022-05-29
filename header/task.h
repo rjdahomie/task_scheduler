@@ -6,6 +6,7 @@
 #include "assignee.hpp"
 #include "time.h"
 #include "date.h"
+#include "reminder.hpp"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ class Task {
         Time *duration;
         string location;
         list<Assignee> *assigneeList;
+	Reminder *remind;
 
     protected:
         int taskID;
@@ -26,8 +28,8 @@ class Task {
     public:
         Task();
         Task(int inputTaskID, string inputTitle);
-        Task(int inputTaskID, string inputTitle, string inputDescription, string inputClassification, string inputPriority, Time *inputDuration, Date *inputDueDate, string inputLocation, list<Assignee> *inputAssigneeList);
-        ~Task();
+        Task(int inputTaskID, string inputTitle, string inputDescription, string inputClassification, string inputPriority, Time *inputDuration, Date *inputDueDate, string inputLocation, list<Assignee> *inputAssigneeList, Reminder *inputRemind);
+        //~Task();
         void setID(int);
         int getID();
         void setTitle(string);
@@ -47,6 +49,8 @@ class Task {
         void addAssignee();
         void deleteAssignee();
 	void displayAssignees();
+	void addReminder();
+	void editReminder();
         void displayTask();
 };
 

@@ -22,13 +22,13 @@ class toDoList {
 	
 	~toDoList(){
 	    //iterate
-	    //list<Task>::iterator it;
-	    for(auto&& t : taskList) {
-		delete t;
-	    }
-	    //for(int i=0; i < taskList->size(); i++){
+	  //  list<Task>::iterator it;
+	  //  for(auto&& t : taskList) {
+	//	delete t;
+	    //}
+	    //for(it = taskList.begine(); it != taskList.end(); i++){
 		//Task *temp = taskList->pop_front();
-		//delete temp;
+	//	delete it;
 	    //}
 	    //delete tasklist
 	    delete taskList;
@@ -55,15 +55,15 @@ class toDoList {
 	    //cout << taskList->size() << endl;
 	    for(int i = 0; i < 20; i++){
 	    	for(it = taskList->begin(); it != taskList->end(); ++it){
-		    cout << "I: " << i << " " << "ID: " << it->getID() << endl;
+		    //cout << "I: " << i << " " << "ID: " << it->getID() << endl;
 		    if(it->getID() == i){
 		        it->displayTask();
 			cout << "\n";
 		    }	
 		}
-		cout << "EXITED 2nd" << endl;
+		//cout << "EXITED 2nd" << endl;
 	    }
-	    cout << "EXITED 1st" << endl;
+	    //cout << "EXITED 1st" << endl;
 	}
 	
 	//START OF STRATEGY RELATED:

@@ -1,6 +1,6 @@
 #include "../header/assignee.hpp"
 #include "../header/date.h"
-//#include "../header/reminder.hpp"
+#include "../header/reminder.hpp"
 #include "../header/task.h"
 #include "../header/time.h"
 #include "../header/toDoList.h"
@@ -22,18 +22,15 @@ int main(){
     toDoList *tempList = new toDoList();
     Task newTask1;
     Task newTask2;
-    Task newTask3;
     tempList->addTask(newTask1);
     tempList->addTask(newTask2);
-    tempList->addTask(newTask3);
     tempList->displayTasks();
     cout << "_____________________________________________________" << endl;
-    //Everything works up to this point
-    tempList->setTaskSort(new IdSorted(tempList));
+    tempList->setTaskSort(new IdSorted(tempList));	//One mem leak error here
     tempList->taskSorter();
-    //Ignore past this line for now
-    cout << "THIS WORKED";
-
+    delete tempList;
+    
+    
 
 
 

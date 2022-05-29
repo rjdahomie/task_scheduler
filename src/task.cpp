@@ -14,6 +14,7 @@ Task::Task(){
     dueDate = new Date();
     location = "";
     assigneeList = new list<Assignee>;
+    remind = new Reminder();
 }
 
 Task::Task(int inputTaskID, string inputTitle){
@@ -26,9 +27,10 @@ Task::Task(int inputTaskID, string inputTitle){
     dueDate = new Date();
     location = "";
     assigneeList = new list<Assignee>;
+    remind = new Reminder();
 }
 
-Task::Task(int inputTaskID, string inputTitle, string inputDescription, string inputClassification, string inputPriority, Time *inputDuration, Date *inputDueDate, string inputLocation, list<Assignee> *inputAssigneeList){
+Task::Task(int inputTaskID, string inputTitle, string inputDescription, string inputClassification, string inputPriority, Time *inputDuration, Date *inputDueDate, string inputLocation, list<Assignee> *inputAssigneeList, Reminder *inputRemind){
     taskID = inputTaskID;
     title = inputTitle;
     description = inputDescription;
@@ -38,15 +40,16 @@ Task::Task(int inputTaskID, string inputTitle, string inputDescription, string i
     dueDate = inputDueDate;
     location = inputLocation;
     assigneeList = inputAssigneeList;
+    remind = inputRemind;
 }
-
+/*
 Task::~Task(){
     //Might need to go through the list and delete all one by one
-    delete[] assigneeList;
+    //delete[] assigneeList;
     delete duration;
     delete dueDate;
 }
-
+*/
 void Task::setID(int inputID){
     taskID = inputID;
 }
@@ -141,6 +144,48 @@ void Task::displayAssignees(){
     cout << "\n";
 }
 
+void Task::addReminder(){
+    cout << "Enter name of the reminder: " << endl;
+    string remindTitle;
+    cin >> remindTitle;
+    cout << "How many days before the dueDate do you want to be reminded? " << endl;
+    int days;
+    cin >> days;
+    remind->setTitle(remindTitle);
+    remind->setDay(days);
+    remind->setStatus(true);
+    cout << "Reminder set." << endl;   
+}
+
+void Task::editReminder(){
+    int choice = 0;
+    int days;
+    string inputTitle;
+    cout << "1: Change Title" << endl;
+    cout << "2: Change Time(in days)" << endl;
+    cout << "3: Change Status" << endl;
+    cin >> choice;
+    if(choice = 1){
+	cin >> inputTitle;
+	remind->setTitle(inputTitle);
+    }else if(choice = 2){
+	cin >> days;
+	remind->setDay(days);
+    }else if(choice = 3){
+	cout << "Active or Non-Active(input T or F)" << endl;
+	string selection;
+	cin >> selection;
+	if(selection == "F" || selection == "f"){
+	    remind->setStatus(false);
+	}else if(selection == "T" || selection == "t"){
+	    remind->setStatus(true);
+	} else {
+	    cout << "Selection not valid. Please try again. " << endl;
+	}
+    }
+}
+
 void Task::displayTask(){
-    cout << getID() << " | " << getTitle();
+    cout << getID() << " | " << getTitle() << "|"; 
+    remind->displayReminder();
 }

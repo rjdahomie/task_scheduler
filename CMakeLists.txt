@@ -8,9 +8,16 @@ ADD_EXECUTABLE(main
     src/assignee.cpp
     src/task.cpp
     src/toDoList.cpp
-
-
+    src/reminder.cpp
 
     src/mymain.cpp
 )
+
+ADD_LIBRARY(date header/date.h src/date.cpp)
+
+ADD_LIBRARY(assignee header/assignee.hpp src/assignee.cpp)
+
+ADD_LIBRARY(reminder header/reminder.hpp src/reminder.cpp)
+
+TARGET_LINK_LIBRARIES(date assignee reminder)
 
