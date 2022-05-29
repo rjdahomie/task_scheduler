@@ -8,7 +8,7 @@
 class TaskSorterStrategy;
 
 class ToDoList {
-    private:
+    public:
         list<Task> *taskList;
 	int size=0;
 	// STRATEGY RELATED:
@@ -38,10 +38,12 @@ class ToDoList {
 
 
         void addTask(Task &newTask);
-        void editTask(Task &curTask);
+        void editTask();
         void deleteTask();
         void displayTasks();
-	void displayReminders(Date inputCurrDate);
+	void displayReminders(Date *inputCurrDate);
+	void addReminder();
+	void editReminder();
 
 	int getSize(){
 	    return size;

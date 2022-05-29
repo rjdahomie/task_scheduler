@@ -69,7 +69,20 @@ void ToDoList::addTask(Task &newTask){
 	taskList->push_back(newTask);
 }
 
-void ToDoList::editTask(Task &curTask){
+void ToDoList::editTask(){
+	int temp;
+	this->displayTasks();
+	cout << "Please enter the task ID: ";
+	cin >> temp;
+	
+	list<Task>::iterator it;
+	list<Task>::iterator tempIt;
+    	for (it = taskList->begin(); it != taskList->end(); ++it){
+        	if(it->getID() == temp){
+			tempIt = it;
+		}
+    	}
+
 	int selection, inputID, year, month, day, hour, minute;
 	string inputTitle, inputDescription, inputClassification, inputPriority, inputLocation;
 
@@ -80,27 +93,27 @@ void ToDoList::editTask(Task &curTask){
 	if (selection == 1) {
 		cout << "\nPlease enter task ID: ";
 		cin >> inputID;
-		curTask.setID(inputID);
+		tempIt->setID(inputID);
 	}
 	else if (selection == 2) {
 		cout << "\nPlease enter task title: ";
 		cin >> inputTitle;
-		curTask.setTitle(inputTitle);
+		tempIt->setTitle(inputTitle);
 	}
 	else if (selection == 3) {
 		cout << "\nPlease enter task description: ";
 		cin >> inputDescription;
-		curTask.setDescription(inputDescription);
+		tempIt->setDescription(inputDescription);
 	}
 	else if (selection ==4){
 		cout << "\nPlease enter task classification: ";
 		cin >> inputClassification;
-		curTask.setClassification(inputClassification);
+		tempIt->setClassification(inputClassification);
 	}
 	else if (selection == 5) {
 		cout << "\nPlease enter task priority: ";
 		cin >> inputPriority;
-		curTask.setPriority(inputPriority);
+		tempIt->setPriority(inputPriority);
 	}
 	else if (selection == 6) {
 		cout << "\nPlease enter task Due time: ";
@@ -110,7 +123,7 @@ void ToDoList::editTask(Task &curTask){
 		cin >> month;
 		cout << "\nEnter year: ";
 		Date tempDate(day, month, year);
-		curTask.setDueDate(&tempDate);
+		tempIt->setDueDate(&tempDate);
 	}
 	else if (selection == 7) {
 		cout << "\nPlease enter task duration: ";
@@ -121,21 +134,21 @@ void ToDoList::editTask(Task &curTask){
 		cout << "\nEnter minute: ";
 		cin >> minute;
 		Time tempTime(day, hour, minute);
-		curTask.setDuration(&tempTime);
+		tempIt->setDuration(&tempTime);
 	}
 	else if (selection == 8) {
 		cout << "\nPlease enter task location: ";
 		cin >> inputLocation;
-		curTask.setLocation(inputLocation);
+		tempIt->setLocation(inputLocation);
 	}
 	else if (selection == 9) {
 		int tempSelect = 0;
 		cout << "\nEnter 1 for adding assignee, Enter 2 for removing assignee: ";
 		cin >> tempSelect;
 		if (tempSelect == 1){
-			curTask.addAssignee();
+			tempIt->addAssignee();
 		} else if (tempSelect == 2){
-			curTask.deleteAssignee();
+			tempIt->deleteAssignee();
 		} else {
 			cout << "\nWrong selection number and quit";
 		}
@@ -157,7 +170,7 @@ void ToDoList::deleteTask()
 			size--;
 		}
     	}
-    cout << "\n";
+    cout << "Task removed.\n";
 }
 
 void ToDoList::displayTasks()
@@ -171,12 +184,47 @@ void ToDoList::displayTasks()
     cout << "\n";
 }
 
-void ToDoList::displayReminders(Date inputCurrDate)
+void ToDoList::addReminder()
+{
+	int temp;
+        this->displayTasks();
+        cout << "Please enter the task ID: ";
+        cin >> temp;
+
+        list<Task>::iterator it;
+        list<Task>::iterator tempIt;
+        for (it = taskList->begin(); it != taskList->end(); ++it){
+                if(it->getID() == temp){
+                        tempIt = it;
+                }
+        }
+	tempIt->addReminder();
+}
+
+void ToDoList::editReminder()
+{
+        int temp;
+        this->displayTasks();
+        cout << "Please enter the task ID: ";
+        cin >> temp;
+
+        list<Task>::iterator it;
+        list<Task>::iterator tempIt;
+        for (it = taskList->begin(); it != taskList->end(); ++it){
+                if(it->getID() == temp){
+                        tempIt = it;
+                }
+        }
+        tempIt->editReminder();
+}
+
+
+void ToDoList::displayReminders(Date *inputCurrDate)
 {
     	cout << "Your Reminders: " << endl;
     	list<Task>::iterator it;
     	for (it = taskList->begin(); it != taskList->end(); ++it){
-        	it->displayReminders(inputCurrDate);
+        	it->displayReminder(*inputCurrDate);
 		cout << "\n";
     	}
     cout << "\n";

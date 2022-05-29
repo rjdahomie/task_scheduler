@@ -165,37 +165,37 @@ void Task::editReminder(){
     cout << "2: Change Time(in days)" << endl;
     cout << "3: Change Status" << endl;
     cin >> choice;
-    if(choice = 1){
+    if(choice == 1){
+	cout << "Please enter the new reminder title: ";
 	cin >> inputTitle;
 	remind->setTitle(inputTitle);
-    }else if(choice = 2){
+	cout << "Reminder has been updated." << endl;
+    }else if(choice == 2){
+	cout << "Please enter new number of days in advance that you want to be reminded: ";
 	cin >> days;
 	remind->setDay(days);
-    }else if(choice = 3){
+	cout << "Reminder has been updated." << endl;
+    }else if(choice == 3){
 	cout << "Active or Non-Active(input T or F)" << endl;
 	string selection;
 	cin >> selection;
-	if(selection == "F" || selection == "f"){
-	    remind->setStatus(false);
-	}else if(selection == "T" || selection == "t"){
-	    remind->setStatus(true);
-	} else {
+	    if(selection == "F" || selection == "f"){
+	        remind->setStatus(false);
+	    }else if(selection == "T" || selection == "t"){
+	    	remind->setStatus(true);
+	    }else{
 	    cout << "Selection not valid. Please try again. " << endl;
 	}
     }
 }
 
 void Task::displayTask(){
-    cout << getID() << " | " << getTitle() << "|"; 
-    remind->displayReminder();
+    cout << getID() << " | " << getTitle();
 }
 
-void Task::displayReminders(Date inputCurrDate){
+void Task::displayReminder(Date inputCurrDate){
     int daysLeft = this->getDueDate().convertDate() - inputCurrDate.convertDate();
     if((remind->getStatus() == true) && (daysLeft <= remind->getDay())){
         cout << remind->getTitle() << " | " << "Due in : "; 
     }
 }
-
-
-

@@ -1,7 +1,7 @@
 #include "../header/reminder.hpp"
 #include <string>
 #include "../header/task.h"
-#include "../header/time.h"
+#include "../header/date.h"
 #include <iostream>
 
 using namespace std;
@@ -9,7 +9,7 @@ using namespace std;
 Reminder::Reminder(){
 	reminderTitle = "";
 	active = false;
-	remind = 0;;
+	remind = 0;
 }
 
 Reminder::Reminder(string remindTitle, int remindTime, bool activity){

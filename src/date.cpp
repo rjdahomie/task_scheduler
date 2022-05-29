@@ -43,5 +43,19 @@ void Date::displayDate(){
 }
 
 int Date::convertDate(){
-	return (year * 360) + (month * 30) + (day);
+	int yearDays = 0;
+	int monthDays = 0;
+	int totalDays = 0;
+	yearDays = year*365;
+	if(month == 1 || month == 3 ||month == 5 ||month == 6 ||month == 7 ||month == 10 ||month == 12){
+	    monthDays = month*31;
+	} else if (month == 4 || month == 6 || month == 9 || month == 10){
+	    monthDays = month*30;
+	} else if (month == 2){
+	    monthDays = month*28;
+	} else {
+	    monthDays = month*30;
+	}
+	totalDays = day+monthDays+yearDays;
+	return totalDays;
 }

@@ -24,11 +24,11 @@ int main(){
     Task newTask2;
     tempList->addTask(newTask1);
     tempList->addTask(newTask2);
-    tempList->displayTasks();
-    cout << "_____________________________________________________" << endl;
-    tempList->setTaskSort(new IdSorted(tempList));	//One mem leak error here
-    tempList->taskSorter();
-    delete tempList;
+    //tempList->displayTasks();
+    //cout << "_____________________________________________________" << endl;
+    //tempList->setTaskSort(new IdSorted(tempList));	//One mem leak error here
+    //tempList->taskSorter();
+    //delete tempList;
     
     
 
