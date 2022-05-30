@@ -28,7 +28,10 @@ class Task {
     public:
         Task();
         Task(int inputTaskID, string inputTitle);
-        Task(int inputTaskID, string inputTitle, string inputDescription, string inputClassification, string inputPriority, Time *inputDuration, Date *inputDueDate, string inputLocation, list<Assignee> *inputAssigneeList, Reminder *inputRemind);
+        Task(int inputTaskID, string inputTitle, string inputDescription, 
+             string inputClassification, string inputPriority, 
+             Time *inputDuration, Date *inputDueDate, string inputLocation, 
+             list<Assignee> *inputAssigneeList, Reminder *inputRemind);
         //~Task();
         void setID(int);
         int getID();

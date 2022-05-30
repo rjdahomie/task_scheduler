@@ -42,6 +42,7 @@ Task::Task(int inputTaskID, string inputTitle, string inputDescription, string i
     assigneeList = inputAssigneeList;
     remind = inputRemind;
 }
+
 /*
 Task::~Task(){
     //Might need to go through the list and delete all one by one
@@ -50,6 +51,7 @@ Task::~Task(){
     delete dueDate;
 }
 */
+
 void Task::setID(int inputID){
     taskID = inputID;
 }
@@ -211,7 +213,7 @@ void Task::displayReminder(Date inputCurrDate){
     int year2 = inputCurrDate.getYear();
     int daysLeft = 0;
     daysLeft = inputCurrDate.difference_of_days(day1, month1, year1, day2, month2, year2);
-    //int daysLeft = this->getDueDate().convertDate() - inputCurrDate.convertDate();
+    //Testing: int daysLeft = this->getDueDate().convertDate() - inputCurrDate.convertDate();
     if((remind->getStatus() == true) && (daysLeft <= remind->getDay())){
         cout << "You have a reminder " << remind->getTitle() << " | " << "Due in : " << daysLeft << " days.";
     }

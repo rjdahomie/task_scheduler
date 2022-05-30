@@ -4,41 +4,41 @@
 using namespace std;
 
 Time::Time(){
-	day = 0;
-	hour = 0;
-	minute = 0;
+    day = 0;
+    hour = 0;
+    minute = 0;
 }
 
 Time::Time(int inputDay, int inputHour, int inputMinute){
-	day = inputDay;
-	hour = inputHour;
-	minute = inputMinute;
+    day = inputDay;
+    hour = inputHour;
+    minute = inputMinute;
 }
 
 void Time::setDay(int inputDay){
-	day = inputDay;
+    day = inputDay;
 }
 
 void Time::setHour(int inputHour){
-	hour = inputHour;
+    hour = inputHour;
 }
 
 void Time::setMinute(int inputMinute){
-	minute = inputMinute;
+    minute = inputMinute;
 }
 
 int Time::getDay(){
-	return day;
+    return day;
 }
 
 int Time::getHour(){
-	return hour;
+    return hour;
 }
 
 int Time::getMinute(){
-	return minute;
+    return minute;
 }
 
 void Time::displayTime(){
-	cout << "This task will take you " << getDay() << " day(s), " << getHour() << " hour(s), and " << getMinute() << " minute(s) to complete. " << endl;
+    cout << "This task will take you " << getDay() << " day(s), " << getHour() << " hour(s), and " << getMinute() << " minute(s) to complete. " << endl;
 }

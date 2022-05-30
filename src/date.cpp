@@ -4,61 +4,61 @@
 using namespace std;
 
 Date::Date(){
-	day = 0;
-	month = 0;
-	year = 0;
+    day = 0;
+    month = 0;
+    year = 0;
 }
 Date::Date(int inputDay, int inputMonth, int inputYear){
-	day = inputDay;
-	month = inputMonth;
-	year = inputYear;
+    day = inputDay;
+    month = inputMonth;
+    year = inputYear;
 }
 
 void Date::setDay(int inputDay){
-	day = inputDay;
+    day = inputDay;
 }
 
 void Date::setMonth(int inputMonth){
-	month = inputMonth;
+    month = inputMonth;
 }
 
 void Date::setYear(int inputYear){
-	year = inputYear;
+    year = inputYear;
 }
 
 int Date::getDay(){
-	return day;
+    return day;
 }
 
 int Date::getMonth(){
-	return month;
+    return month;
 }
 
 int Date::getYear(){
-	return year;
+    return year;
 }
 
 void Date::displayDate(){
-	cout << "Date: " << month << "/" << day << "/" << year << endl;
+    cout << "Date: " << month << "/" << day << "/" << year << endl;
 }
 
 int Date::convertDate(){
-	int yearDays = 0;
-	int monthDays = 0;
-	int totalDays = 0;
-	yearDays = year*365;
-	if(month == 1 || month == 3 ||month == 5 ||month == 6 ||month == 7 ||month == 10 ||month == 12){
-	    monthDays = month*31;
-	} else if (month == 4 || month == 6 || month == 9 || month == 10){
-	    monthDays = month*30;
-	} else if (month == 2){
-	    monthDays = month*28;
-	} else {
-	    monthDays = month*30;
-	}
-	totalDays = day+monthDays+yearDays;
-	//Testing: cout << "Day: " << day << " Month: " << monthDays << " Year: " << yearDays << " Total days: " << totalDays << endl;
-	return totalDays;
+    int yearDays = 0;
+    int monthDays = 0;
+    int totalDays = 0;
+    yearDays = year*365;
+    if(month == 1 || month == 3 ||month == 5 ||month == 6 ||month == 7 ||month == 10 ||month == 12){
+	monthDays = month*31;
+    } else if (month == 4 || month == 6 || month == 9 || month == 10){
+	monthDays = month*30;
+    } else if (month == 2){
+	monthDays = month*28;
+    } else {
+	monthDays = month*30;
+    }
+    totalDays = day+monthDays+yearDays;
+    //Testing: cout << "Day: " << day << " Month: " << monthDays << " Year: " << yearDays << " Total days: " << totalDays << endl;
+    return totalDays;
 }
 
 int Date::check_leap_year(int year)
@@ -100,7 +100,7 @@ int Date::difference_of_days(int day1,int month1, int year1, int day2, int month
             if(day1==day2)      //for same dates
                 return 0;
             else
-                return (day1-day2);  //for same year, same month but diff days                                                      abs
+                return (day1-day2);  //for same year, same month but diff days
         }
         else if(month1<month2)
         {
