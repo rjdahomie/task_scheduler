@@ -10,7 +10,7 @@ ADD_EXECUTABLE(main
     src/assignee.cpp
     src/task.cpp
     src/toDoList.cpp
-
+    src/reminder.cpp
 
 
     src/mymain.cpp
@@ -24,7 +24,13 @@ ADD_LIBRARY(date header/date.h src/date.cpp)
 
 ADD_LIBRARY(assignee header/assignee.hpp src/assignee.cpp)
 
-TARGET_LINK_LIBRARIES(test date assignee)
+ADD_LIBRARY(time header/time.h src/time.cpp)
+
+ADD_LIBRARY(reminder header/reminder.hpp src/reminder.cpp)
+
+ADD_LIBRARY(task header/task.h src/task.cpp)
+
+TARGET_LINK_LIBRARIES(test date assignee time reminder task)
 
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)

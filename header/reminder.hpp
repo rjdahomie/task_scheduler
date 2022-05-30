@@ -14,18 +14,13 @@ class Reminder : public Task{
 	public:
 		Reminder();
 		Reminder(string newTitle, int newRemind, bool status);
-		Reminder(Task T);
-		~Reminder();
 		void setTitle(string);
 		void setStatus(bool);
 		void setDay(int);
 		string getTitle();
 		bool getStatus();
 		int getDay();
-		void addReminder();
-		void editReminder();
-		void deleteReminder();
-		void displayReminder();
+		void displayReminder(); 
 };
 
 #endif 
