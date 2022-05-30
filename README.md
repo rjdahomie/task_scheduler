@@ -40,9 +40,67 @@ Using **Strategy Design Pattern**: The task list needs to be sorted based on the
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+Screenshots of the Input/Output of Our Application
+
+Today's Date:
+
+![image](https://user-images.githubusercontent.com/85650719/170908918-423c27f0-065a-4cd4-8f66-8d57276e8dcf.png)
+
+Main Menu:
+
+![image](https://user-images.githubusercontent.com/85650719/170908961-4df988bf-da71-4cbe-8a4a-5d404d72a821.png)
+
+Add Task:
+
+![image](https://user-images.githubusercontent.com/85650719/170950781-d4bd7870-e819-4c18-8a71-9ba7b5b3bcab.png)
+
+Edit Task:
+
+![image](https://user-images.githubusercontent.com/85650719/170951007-bc95476e-9727-411b-aa95-9b1392c2c104.png)
+
+Remove Task:
+
+![image](https://user-images.githubusercontent.com/85650719/170951439-d520bb90-59c6-47b7-a6e1-1f8e0ff44bc9.png)
+
+Add Reminder:
+
+![image](https://user-images.githubusercontent.com/85650719/170951886-d19075bc-6558-4656-91a3-80968d9f0644.png)
+
+Edit Reminder:
+
+Display (Task by earliest Addition):
+
+Display (Task by sorted ID):
+
+Display (Task by sorted priority):
+
+Display (Task by sorted dueDate):
+
+Display (Reminders):
+
+![image](https://user-images.githubusercontent.com/85650719/170952803-92adb76f-fb9a-4e4d-9256-5a3324f2a190.png)
+
+Change Today's Date:
+
+![image](https://user-images.githubusercontent.com/85650719/170952340-6724b188-4fe9-43c3-847e-f8c2fad69e26.png)
+
+
  ## Installation/Usage
- > Instructions on installing and running your application
+1. Start by going to this Github's repository and get the cloning link by pressing the green button named "Code". Then clone this GitHub Repository on your local terminal. 
+2. Run "cmake3 ." 
+3. Run "make" on your command line.
+4. Run ./main on your command line.
+5. Input todays date 
+6. Task Scheduler is ready!
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+
+How this project was tested:
+
+1. Unit Tests were created to test the functions in the Date class. 
+2. Unit Tests were created to test the functions in the Assignee class.
+3. Unit Tests were created to test the functions in the Reminder class.
+4. Unit Tests were created to test the functions in the Task Class.
+5. Unit Tests were created to test the functions in the Time Class.
+6. Unit Tests were created to test the functions in the toDoList Class.
+7. Valgrind was used to check for memory leaks in the entire program
  
