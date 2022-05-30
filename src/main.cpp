@@ -65,6 +65,7 @@ void mainMenu(ToDoList* inputToDoList){
 	    inputToDoList->setTaskSort(new PrioritySorted(inputToDoList));
             inputToDoList->taskSorter();
 	} else if (menuChoice == 4){
+	    inputToDoList->setTodayDate(currDate);
 	    inputToDoList->setTaskSort(new DueDateSorted(inputToDoList));
 	    inputToDoList->taskSorter();
 	} else if (menuChoice == 5){
@@ -92,6 +93,9 @@ void mainMenu(ToDoList* inputToDoList){
     }
     else if (menuChoice == 8){
 	abort();
+    }
+    else {
+	cout << "Not a valid input. Please try again." << endl;
     }
 }
 

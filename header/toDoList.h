@@ -4,6 +4,7 @@
 #include <list>
 #include "task.h"
 #include "taskSorterStrategy.hpp"
+#include "date.h"
 
 class TaskSorterStrategy;
 
@@ -11,6 +12,7 @@ class ToDoList {
     public:
         list<Task> *taskList;
 	int size=0;
+	Date *today = new Date();
 	// STRATEGY RELATED:
 	TaskSorterStrategy *strategy;
 	// END OF STARTEGY RELATED
@@ -44,7 +46,12 @@ class ToDoList {
 	void displayReminders(Date *inputCurrDate);
 	void addReminder();
 	void editReminder();
-
+	
+	void setTodayDate(Date *inputDate){
+	    today->setDay(inputDate->getDay());
+	    today->setMonth(inputDate->getMonth());
+	    today->setYear(inputDate->getYear());
+	}
 	int getSize(){
 	    return size;
 	}
@@ -97,9 +104,20 @@ class ToDoList {
 	
 	void displaySortedByDueDate(){
 	    list<Task>::iterator it;
+	    int day1 = today->getDay();
+	    int day2 = 0;
+	    int month1 = today->getMonth();
+	    int month2 = 0;
+	    int year1 = today->getYear();
+	    int year2 = 0;
+	    int diff = 0;
 	    for(int i = 0; i < 365; i++){
 	    	for(it = taskList->begin(); it != taskList->end(); ++it){
-		    if(it->getID() == i){
+		    day2 = it->getDueDate().getDay();
+		    month2 = it->getDueDate().getMonth();
+		    year2 = it->getDueDate().getYear();
+		    diff = today->difference_of_days(day1, month1, year1, day2, month2, year2);
+		    if(diff == i){
 		        it->displayTask();
 			cout << "\n";
 		    }	
