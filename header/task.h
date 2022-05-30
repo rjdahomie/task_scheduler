@@ -36,7 +36,7 @@ class Task {
         void setID(int);
         int getID();
         void setTitle(string);
-        string getTitle();
+        string getTaskTitle();
         void setDescription(string);
         string getDescription();
         void setClassification(string);

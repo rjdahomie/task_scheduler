@@ -64,7 +64,7 @@ void Task::setTitle(string inputTitle){
     title = inputTitle;
 }
 
-string Task::getTitle(){
+string Task::getTaskTitle(){
     return title;
 }
 
@@ -149,11 +149,13 @@ void Task::displayAssignees(){
 void Task::addReminder(){
     cout << "Enter name of the reminder: " << endl;
     string remindTitle;
-    cin >> remindTitle;
+    cin.ignore();
+    getline(cin,remindTitle);
+    remind->setTitle(remindTitle);
     cout << "How many days before the dueDate do you want to be reminded? " << endl;
     int days;
     cin >> days;
-    remind->setTitle(remindTitle);
+    //remind->setTitle(remindTitle);
     remind->setDay(days);
     remind->setStatus(true);
     cout << "Reminder set." << endl;   
@@ -192,7 +194,7 @@ void Task::editReminder(){
 }
 
 void Task::displayTask(){
-    cout << getID() << " | " << getTitle() << " | Due ";
+    cout << getID() << " | " << getTaskTitle() << " | Due ";
     getDueDate().displayDate();
     cout << "Description: " << getDescription() << endl;
     cout << "Classification: " << getClassification() << endl;

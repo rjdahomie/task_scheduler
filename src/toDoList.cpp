@@ -15,22 +15,27 @@ void ToDoList::addTask(Task &newTask){
     string inputTitle, inputDescription, inputClassification, inputPriority, inputLocation;
     cout << "\nPlease enter task ID: ";
     cin >> inputID;
+    cin.ignore();
     newTask.setID(inputID);
 
     cout << "\nPlease enter task title: ";
-    cin >> inputTitle;
+    //cin >> inputTitle;
+    getline(cin,inputTitle);
     newTask.setTitle(inputTitle);
 
     cout << "\nPlease enter task description: ";
-    cin >> inputDescription;
+    //cin >> inputDescription;
+    getline(cin,inputDescription); 
     newTask.setDescription(inputDescription);
 	
     cout << "\nPlease enter task classification: ";
-    cin >> inputClassification;
+    //cin >> inputClassification;
+    getline(cin,inputClassification);
     newTask.setClassification(inputClassification);
 
     cout << "\nPlease enter task priority: ";
     cin >> inputPriority;
+    cin.ignore();
     newTask.setPriority(inputPriority);
 
     cout << "\nPlease enter task Due Date: " << endl;
@@ -54,9 +59,11 @@ void ToDoList::addTask(Task &newTask){
     cin >> minute;
     Time *tempTime = new Time(day, hour, minute);
     newTask.setDuration(tempTime);
-	
+    cin.ignore();
+
     cout << "\nPlease enter task location: ";
-    cin >> inputLocation;
+    //cin >> inputLocation;
+    getline(cin,inputLocation);
     newTask.setLocation(inputLocation);
 
     cout << "\nHow many people are assigned to this task: ";
@@ -68,6 +75,8 @@ void ToDoList::addTask(Task &newTask){
     }
     size++;
     taskList->push_back(newTask);
+    //cin.ignore();
+   //IF CIN ISSUE, THEN CIN IGNORE HERE
 }
 
 void ToDoList::editTask(){
@@ -75,7 +84,7 @@ void ToDoList::editTask(){
     this->displayTasks();
     cout << "Please enter the task ID: ";
     cin >> temp;
-    
+    cin.ignore();
     list<Task>::iterator it;
     list<Task>::iterator tempIt;
     for (it = taskList->begin(); it != taskList->end(); ++it){
@@ -90,7 +99,7 @@ void ToDoList::editTask(){
     cout << "Please enter a number for edit.\n"
 	 << "1.ID 2.title 3.description 4.classification 5.priority 6.due time 7.duration 8.location 9.assignees\n";
     cin >> selection;
-	
+    cin.ignore();	
     if (selection == 1) {
 	cout << "\nPlease enter task ID: ";
 	cin >> inputID;
@@ -98,17 +107,19 @@ void ToDoList::editTask(){
     }
     else if (selection == 2) {
 	cout << "\nPlease enter task title: ";
-	cin >> inputTitle;
+	//cin >> inputTitle;
+	getline(cin,inputTitle);
 	tempIt->setTitle(inputTitle);
     }
     else if (selection == 3) {
 	cout << "\nPlease enter task description: ";
-	cin >> inputDescription;
+	//cin >> inputDescription;
+	getline(cin,inputDescription);
 	tempIt->setDescription(inputDescription);
     }
     else if (selection ==4){
 	cout << "\nPlease enter task classification: ";
-	cin >> inputClassification;
+	getline(cin,inputClassification);
 	tempIt->setClassification(inputClassification);
     }
     else if (selection == 5) {
@@ -124,8 +135,8 @@ void ToDoList::editTask(){
 	cin >> month;
 	cout << "\nEnter year: ";
 	cin >> year;
-	Date tempDate(day, month, year);
-	tempIt->setDueDate(&tempDate);
+	Date *tempDate = new Date(day, month, year);
+	tempIt->setDueDate(tempDate);
     }
     else if (selection == 7) {
 	cout << "\nPlease enter task duration: ";
@@ -140,7 +151,7 @@ void ToDoList::editTask(){
     }
     else if (selection == 8) {
 	cout << "\nPlease enter task location: ";
-	cin >> inputLocation;
+	getline(cin,inputLocation);
 	tempIt->setLocation(inputLocation);
     }
     else if (selection == 9) {
