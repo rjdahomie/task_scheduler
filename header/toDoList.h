@@ -7,20 +7,15 @@
 class toDoList {
     private:
         list<Task> *taskList;
-	int size = 0;
- 
+  
     public:
         toDoList();
         toDoList(list<Task> *taskList);
 
-        void addTask();
-        void editTask(Task);
-        void deleteTask(Task &);
-        void displayTasks(Task);
-
-	void displaySortedByID();
-	void displaySortedByPriority();
-	void displaySortedByDueDate();
+        void addTask(Task &newTask);
+        void editTask(Task &curTask);
+        void deleteTask();
+        void displayTasks();
 };
 
 #endif // TODOLIST_HPP

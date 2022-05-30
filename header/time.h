@@ -3,7 +3,7 @@
 
 class Time{
     private:
-        int time;
+        int day;
         int hour;
         int minute;
 

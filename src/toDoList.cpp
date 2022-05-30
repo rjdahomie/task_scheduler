@@ -9,11 +9,9 @@ toDoList::toDoList(){
 	taskList = new list<Task>;
 }
 
-void toDoList::addTask(){
+void toDoList::addTask(Task &newTask){
 	int inputID, year, month, day, hour, minute;
 	string inputTitle, inputDescription, inputClassification, inputPriority, inputLocation;
-
-	Task newTask;
 
 	cout << "\nPlease enter task ID: ";
 	cin >> inputID;
@@ -26,44 +24,55 @@ void toDoList::addTask(){
 	cout << "\nPlease enter task description: ";
 	cin >> inputDescription;
 	newTask.setDescription(inputDescription);
+	
+	cout << "\nPlease enter task classification: ";
+	cin >> inputClassification;
+	newTask.setClassification(inputClassification);
 
 	cout << "\nPlease enter task priority (HIGH/MEDIUM/LOW): ";
 	cin >> inputPriority;
 	newTask.setPriority(inputPriority);
 
-	cout << "\nPlease enter task due date: ";
-        cout << "\nEnter day: ";
-        cin >> day;
-        cout << "\nEnter month: ";
-        cin >> month;
-        cout << "\nEnter year: ";
-        cin >> year;
-        Date tempDate(day, month, year);
-        newTask.setDueDate(&tempDate);
+	cout << "\nPlease enter task Due Date: " << endl;
+	cout << "Enter day: ";
+	cin >> day;
+	cout << endl << "Enter month: ";
+	cin >> month;
+	cout << endl << "Enter year: ";
+	cin >> year;
+	Date tempDate(day, month, year);
+	newTask.setDueDate(&tempDate);
 
-	cout << "\nPlease enter task duration: ";
-	cout << "\nEnter day: ";
-	cin  >> day;
-	cout << "\nEnter hour: ";
+	cout << "\nPlease enter task duration: " << endl;
+	cout << "How many days will this task take: ";
+	cin >> day;
+	cout << endl << "How many hours will this task take you: ";
 	cin >> hour;
-	cout << "\nEnter minute: ";
+	cout << endl << "How many minutes will this task take you: ";
 	cin >> minute;
 	Time tempTime(day, hour, minute);
 	newTask.setDuration(&tempTime);
-
+	
 	cout << "\nPlease enter task location: ";
 	cin >> inputLocation;
 	newTask.setLocation(inputLocation);
-	
+
+	cout << "\nHow many people are assigned to this task: ";
+	int assigneeNum;
+	cin >> assigneeNum;
+	cout << endl;
+	for (int i = 0; i < assigneeNum; i++){
+	    newTask.addAssignee();
+	}
 	taskList->push_back(newTask);
 }
 
-void toDoList::editTask(Task curTask){
+void toDoList::editTask(Task &curTask){
 	int selection, inputID, year, month, day, hour, minute;
 	string inputTitle, inputDescription, inputClassification, inputPriority, inputLocation;
 
 	cout << "Please enter a number for edit.\n"
-		<< "1.ID \n2.title \n3.description \n4.priority \n5.due time \n6.location\n";
+		<< "1.ID 2.title 3.description 4.classification 5.priority 6.due time 7.duration 8.location 9.assignees\n";
 	cin >> selection;
 	
 	if (selection == 1) {
@@ -81,13 +90,18 @@ void toDoList::editTask(Task curTask){
 		cin >> inputDescription;
 		curTask.setDescription(inputDescription);
 	}
-	else if (selection == 4) {
+	else if (selection ==4){
+		cout << "\nPlease enter task classification: ";
+		cin >> inputClassification;
+		curTask.setClassification(inputClassification);
+	}
+	else if (selection == 5) {
 		cout << "\nPlease enter task priority: ";
 		cin >> inputPriority;
 		curTask.setPriority(inputPriority);
 	}
-	else if (selection == 5) {
-		cout << "\nPlease enter task due date: ";
+	else if (selection == 6) {
+		cout << "\nPlease enter task Due time: ";
 		cout << "\nEnter day: ";
 		cin >> day;
 		cout << "\nEnter month: ";
@@ -96,7 +110,7 @@ void toDoList::editTask(Task curTask){
 		Date tempDate(day, month, year);
 		curTask.setDueDate(&tempDate);
 	}
-	else if (selection == 6) {
+	else if (selection == 7) {
 		cout << "\nPlease enter task duration: ";
 		cout << "\nEnter day: ";
 		cin >> day;
@@ -107,10 +121,22 @@ void toDoList::editTask(Task curTask){
 		Time tempTime(day, hour, minute);
 		curTask.setDuration(&tempTime);
 	}
-	else if (selection == 7) {
+	else if (selection == 8) {
 		cout << "\nPlease enter task location: ";
 		cin >> inputLocation;
 		curTask.setLocation(inputLocation);
+	}
+	else if (selection == 9) {
+		int tempSelect = 0;
+		cout << "\nEnter 1 for adding assignee, Enter 2 for removing assignee: ";
+		cin >> tempSelect;
+		if (tempSelect == 1){
+			curTask.addAssignee();
+		} else if (tempSelect == 2){
+			curTask.deleteAssignee();
+		} else {
+			cout << "\nWrong selection number and quit";
+		}
 	}
 	else {
 		cout << "\nWrong selection number and quit";
@@ -119,42 +145,25 @@ void toDoList::editTask(Task curTask){
 
 void toDoList::deleteTask(Task &curTask)
 {
-	taskList->erase(curTask);
+	cout << "Enter the ID of the task you want removed: " << endl;
+    	int tempID;
+    	cin >> tempID;
+    	list<Task>::iterator it;
+    	for (it = taskList->begin(); it != taskList->end(); ++it){
+        	if(it->getID() == tempID){
+	    		it = taskList->erase(it);
+		}
+    	}
+    cout << "\n";
 }
 
 void toDoList::displayTasks(Task curTask)
 {
-	cout << "ID: " << curTask.getID << endl;
-	cout << "Title: " << curTask.getTitle() << endl;
-        cout << "Description: " << curTask.getDescription() << endl;
-        cout << "Classification: " << curTask.getClassification() << endl;
-        cout << "Priority: " << curTask.getPriority() << endl;
-        cout << "Duration: " << curTask.getDuration() << endl;
-        cout << "Due Date: " << curTask.getDueDate() << endl;
-        cout << "Location: " <<  curTask.getLocation() << endl;
-}
-
-void displaySortedByPriority() { 
-	list<Task>::iterator it;
-	for (int i = 1; i < size; i++) {
-		for (it = taskList->begin(); it != taskList->end(); ++it) {
-			if (it->getPriority() == "HIGH") {
-				it->displayTask();
-				cout << "\n";
-				break;
-			}
-			else if (it->getPriority() == "MEDIUM") {
-				it->displayTask();
-				cout << "\n";
-				break;
-			}
-			else if (it->getPriority() == "LOW") {
-				it->displayTask();
-				cout << "\n";
-				break;
-			}
-			else
-				break;
-		}
-	}
+    	cout << "Your Tasks: " << endl;
+    	list<Task>::iterator it;
+    	for (it = taskList->begin(); it != taskList->end(); ++it){
+        	it->displayTask();
+		cout << "\n";
+    	}
+    cout << "\n";
 }
