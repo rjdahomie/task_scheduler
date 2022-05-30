@@ -68,13 +68,23 @@ Add Reminder:
 
 Edit Reminder:
 
+![image](https://user-images.githubusercontent.com/85650719/171065922-8b2cc431-7291-4858-ba85-1291f2f47d67.png)
+
 Display (Task by earliest Addition):
+
+![image](https://user-images.githubusercontent.com/85650719/171065454-895c8f91-f969-4572-ba41-223cbac4b5c5.png)
 
 Display (Task by sorted ID):
 
+![image](https://user-images.githubusercontent.com/85650719/171065490-2da39484-1f12-4b07-b76a-326e214dd4c2.png)
+
 Display (Task by sorted priority):
 
+![image](https://user-images.githubusercontent.com/85650719/171065567-ae7a6dd9-cc58-4f2c-817a-d3c382800d19.png)
+
 Display (Task by sorted dueDate):
+
+![image](https://user-images.githubusercontent.com/85650719/171065629-c9eaee31-c1c5-4d45-8679-c967a5e1542a.png)
 
 Display (Reminders):
 
