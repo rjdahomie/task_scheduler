@@ -123,12 +123,5 @@ int main(){
         mainMenu(userTaskList);
     }
 
-
-
-
-
-
-
-
     return 0;
 }
