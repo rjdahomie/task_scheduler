@@ -6,6 +6,8 @@
 #include "../header/toDoList.h"
 #include "../header/taskSorterStrategy.hpp"
 #include "../header/idSorted.hpp"
+#include "../header/prioritySorted.hpp"
+#include "../header/dueDateSorted.hpp"
 #include <iostream>
 #include <string>
 
@@ -60,9 +62,11 @@ void mainMenu(ToDoList* inputToDoList){
 	    inputToDoList->setTaskSort(new IdSorted(inputToDoList));
 	    inputToDoList->taskSorter();
 	} else if (menuChoice == 3){
-
+	    inputToDoList->setTaskSort(new PrioritySorted(inputToDoList));
+            inputToDoList->taskSorter();
 	} else if (menuChoice == 4){
-
+	    inputToDoList->setTaskSort(new DueDateSorted(inputToDoList));
+	    inputToDoList->taskSorter();
 	} else if (menuChoice == 5){
 	    inputToDoList->displayReminders(currDate);
 	} else {

@@ -39,7 +39,6 @@ int Time::getMinute(){
 	return minute;
 }
 
-
-
-
-
+void Time::displayTime(){
+	cout << "This task will take you " << getDay() << " day(s), " << getHour() << " hour(s), and " << getMinute() << " minute(s) to complete. " << endl;
+}

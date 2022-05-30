@@ -139,7 +139,7 @@ void Task::deleteAssignee(){
 void Task::displayAssignees(){
     list<Assignee>::iterator it;
     for (it = assigneeList->begin(); it != assigneeList->end(); ++it){
-        cout << "|" << it-> getName();
+        cout << it-> getName() << " | ";
     }
     cout << "\n";
 }
@@ -192,6 +192,14 @@ void Task::editReminder(){
 void Task::displayTask(){
     cout << getID() << " | " << getTitle() << " | Due ";
     getDueDate().displayDate();
+    cout << "Description: " << getDescription() << endl;
+    cout << "Classification: " << getClassification() << endl;
+    cout << "Priority: " << getPriority() << endl;
+    cout << "Task Duration: ";
+    getDuration().displayTime();
+    cout << "Location: " << getLocation() << endl;
+    cout << "Assignees: ";
+    displayAssignees();
 }
 
 void Task::displayReminder(Date inputCurrDate){
@@ -203,9 +211,6 @@ void Task::displayReminder(Date inputCurrDate){
     int year2 = inputCurrDate.getYear();
     int daysLeft = 0;
     daysLeft = inputCurrDate.difference_of_days(day1, month1, year1, day2, month2, year2);
-
-
-
     //int daysLeft = this->getDueDate().convertDate() - inputCurrDate.convertDate();
     if((remind->getStatus() == true) && (daysLeft <= remind->getDay())){
         cout << "You have a reminder " << remind->getTitle() << " | " << "Due in : " << daysLeft << " days.";

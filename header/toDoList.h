@@ -69,6 +69,44 @@ class ToDoList {
 	    //cout << "EXITED 1st" << endl;
 	}
 	
+	void displaySortedByPriority(){
+	    list<Task>::iterator it;
+	    for(int i = 0; i < 3; i++){
+		for(it = taskList->begin(); it != taskList->end(); ++it){
+		    if(i==0){
+			if(it->getPriority() == "high" || it->getPriority() == "High"){
+			    it->displayTask();
+			    cout << "\n";
+			}
+		    }
+		    if(i==1){
+			if(it->getPriority() == "medium" || it->getPriority() == "Medium"){
+                            it->displayTask();
+                            cout << "\n";
+                        }
+                    }
+		    if(i==2){
+			if(it->getPriority() == "low" || it->getPriority() == "Low"){
+                            it->displayTask();
+                            cout << "\n";
+                        }
+                    }
+		}
+	    }
+	}
+	
+	void displaySortedByDueDate(){
+	    list<Task>::iterator it;
+	    for(int i = 0; i < 365; i++){
+	    	for(it = taskList->begin(); it != taskList->end(); ++it){
+		    if(it->getID() == i){
+		        it->displayTask();
+			cout << "\n";
+		    }	
+		}
+	    }
+	}
+	
 	//START OF STRATEGY RELATED:
 	void taskSorter(){
 	    this->strategy->sortTasks();

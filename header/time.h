@@ -17,6 +17,7 @@ class Time{
         int getDay();
         int getHour();
         int getMinute();
+	void displayTime();
 };
 
 #endif
