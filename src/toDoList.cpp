@@ -1,9 +1,5 @@
 #include "../header/toDoList.h"
 #include "../header/task.h"
-#include "../header/date.h"
-#include "../header/time.h"
-
-#include <string>
 
 toDoList::toDoList(){
 	taskList = new list<Task>;
@@ -29,7 +25,7 @@ void toDoList::addTask(Task &newTask){
 	cin >> inputClassification;
 	newTask.setClassification(inputClassification);
 
-	cout << "\nPlease enter task priority (HIGH/MEDIUM/LOW): ";
+	cout << "\nPlease enter task priority: ";
 	cin >> inputPriority;
 	newTask.setPriority(inputPriority);
 
@@ -143,7 +139,7 @@ void toDoList::editTask(Task &curTask){
 	}
 }
 
-void toDoList::deleteTask(Task &curTask)
+void toDoList::deleteTask()
 {
 	cout << "Enter the ID of the task you want removed: " << endl;
     	int tempID;
@@ -157,7 +153,7 @@ void toDoList::deleteTask(Task &curTask)
     cout << "\n";
 }
 
-void toDoList::displayTasks(Task curTask)
+void toDoList::displayTasks()
 {
     	cout << "Your Tasks: " << endl;
     	list<Task>::iterator it;

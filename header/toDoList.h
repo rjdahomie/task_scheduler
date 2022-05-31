@@ -7,7 +7,7 @@
 class toDoList {
     private:
         list<Task> *taskList;
-  
+
     public:
         toDoList();
         toDoList(list<Task> *taskList);
