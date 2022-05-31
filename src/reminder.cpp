@@ -12,17 +12,17 @@ Reminder::Reminder(){
 }
 
 Reminder::Reminder(string remindTitle, int remindTime, bool activity){
-	reminderTitle = remindTitle;
-	remind = remindTime;
-	active = activity;
+    reminderTitle = remindTitle;
+    remind = remindTime;
+    active = activity;
 }
 
 void Reminder::setTitle(string newTitle){
-	reminderTitle = newTitle;
+    reminderTitle = newTitle;
 }
 
 void Reminder::setStatus(bool newStatus){
-	active = newStatus;
+    active = newStatus;
 }
 
 void Reminder::setDay(int newTime){
@@ -30,7 +30,7 @@ void Reminder::setDay(int newTime){
 }
 
 string Reminder::getTitle(){
-	return reminderTitle;
+    return reminderTitle;
 }
 
 bool Reminder::getStatus(){
@@ -42,6 +42,6 @@ int Reminder::getDay(){
 }
 
 void Reminder::displayReminder(){
-	cout << reminderTitle << ": Due in " << remind << " days." << endl;
+    cout << reminderTitle << ": Due in " << remind << " days." << endl;
 }
 

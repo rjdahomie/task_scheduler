@@ -5,6 +5,7 @@
 #include "../testing/task_test.cpp"
 #include "../testing/time_test.cpp"
 #include "../testing/reminder_test.cpp"
+//#include "../testing/todolist_test.cpp"
 
 int main(int argc, char **argv){
 	::testing::InitGoogleTest(&argc, argv);

@@ -14,7 +14,7 @@ TEST(TaskTest, BasicFunctionality){
 	tester->setDueDate(newDate);
 	tester->setDuration(date);
 	EXPECT_EQ(tester->getDuration().getDay(), 5);
-	EXPECT_EQ(tester->getDueDate().convertDate(), 722233);
+	EXPECT_EQ(tester->getDueDate().convertDate(), 732259);
 	delete date;
 	delete newDate;
 	delete tester;
@@ -27,11 +27,11 @@ TEST(TaskTest, BasicFunctionality_2){
 	Time* date = new Time(1, 1, 1);
 	Date* newDate = new Date(5, 5, 5);
 	EXPECT_EQ(tester->getID() , 2540);
-	EXPECT_EQ(tester->getTitle(), "Wow look!");
+	EXPECT_EQ(tester->getTaskTitle(), "Wow look!");
 	tester->setDueDate(newDate);
 	tester->setDuration(date);
 	EXPECT_EQ(tester->getDuration().getMinute(), 1);
-	EXPECT_EQ(tester->getDueDate().convertDate(), 1955);
+	EXPECT_EQ(tester->getDueDate().convertDate(), 1985);
 	delete date;
 	delete newDate;
 	delete tester;
@@ -44,11 +44,11 @@ TEST(TaskTest, BasicFunctionality_3){
         Time* date = new Time(5, 3, 22);
         Date* newDate = new Date(5, 5, 2005);
         EXPECT_EQ(tester->getID() , 3200);
-        EXPECT_EQ(tester->getTitle(), "CS111");
+        EXPECT_EQ(tester->getTaskTitle(), "CS111");
         tester->setDueDate(newDate);
         tester->setDuration(date);
         EXPECT_EQ(tester->getDuration().getMinute(), 22);
-        EXPECT_EQ(tester->getDueDate().convertDate(), 721955);
+        EXPECT_EQ(tester->getDueDate().convertDate(), 731985);
         delete date;
         delete newDate;
         delete tester;
@@ -62,7 +62,7 @@ TEST(TaskTest, NullTestID){
 
 TEST(TaskTest, NullTestTitle){
         Task* tester = new Task();
-        EXPECT_EQ(tester->getTitle(), "");
+        EXPECT_EQ(tester->getTaskTitle(), "");
         delete tester;
 }
 

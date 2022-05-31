@@ -1,6 +1,6 @@
 #include "../header/assignee.hpp"
 #include "../header/date.h"
-//#include "../header/reminder.hpp"
+#include "../header/reminder.hpp"
 #include "../header/task.h"
 #include "../header/time.h"
 #include "../header/toDoList.h"
@@ -24,14 +24,13 @@ int main(){
     Task newTask2;
     tempList->addTask(newTask1);
     tempList->addTask(newTask2);
-    tempList->displayTasks();
-    cout << "_____________________________________________________" << endl;
-    //Everything works up to this point
-    tempList->setTaskSort(new IdSorted(tempList));
-    tempList->taskSorter();
-    //Ignore past this line for now
-
-
+    //tempList->displayTasks();
+    //cout << "_____________________________________________________" << endl;
+    //tempList->setTaskSort(new IdSorted(tempList));	//One mem leak error here
+    //tempList->taskSorter();
+    //delete tempList;
+    
+    
 
 
 

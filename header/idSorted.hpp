@@ -11,11 +11,10 @@ using namespace std;
 class IdSorted : public TaskSorterStrategy
 {
     protected:
-        //variables if any
-        toDoList *currList;
+        ToDoList *currList;
 
     public:
-	IdSorted(toDoList *inputList){
+	IdSorted(ToDoList *inputList){
 	   currList = inputList;
 	}
 
@@ -30,27 +29,10 @@ class IdSorted : public TaskSorterStrategy
 		cout << "Task List is empty" << endl;
 	    } else if (temp.size() == 1){
 		currList->displayTasks();
-	    } else if (temp.size() > 1){
+	    } else {
 		currList->displaySortedByID();
 	    }
-	
-
-
 	}
-
-
-/*
-            list<Task>::iterator it;
-	    for (int i = 0; i < currList->getSize(); i++){
-		for (it = currList->getList().begin(); it != currList->getList().end(); ++it){
-                    if(i == it->getID()){
-			it->displayTask();
-                        cout << "\n";
-		    }
-                }
-	    }
-*/
-	
 };
 
 #endif //__IDSORTED_HPP__

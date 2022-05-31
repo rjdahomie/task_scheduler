@@ -24,22 +24,22 @@ TEST(DateTest, DisplayYear){
 
 TEST(DateTest, DisplayDate){
 	Date tester(26, 5, 2022);
-	EXPECT_EQ(tester.displayDate(), "Date: 26/5/2022");
+	EXPECT_EQ(tester.displayDateString(), "Date: 5/26/2022");
 }
 
 TEST(DateTest, ConvertDate){
 	Date tester(26, 5, 2022);
 	int result = tester.convertDate();
-	EXPECT_EQ(result, 728096);
+	EXPECT_EQ(result, 738211);
 }
 
 TEST(DateTest, EdgeCaseDay){
 	Date tester(52, 5, 2022);
-	EXPECT_EQ(tester.displayDate(), "Date: 22/6/2022");
+	EXPECT_EQ(tester.displayDateString(), "Date: 5/52/2022");
 }
 
 TEST(DateTest, EdgeCaseMonth){
 	Date tester(23, 15, 2022);
-	EXPECT_EQ(tester.displayDate(), "Date: 23/3/2023");
+	EXPECT_EQ(tester.displayDateString(), "Date: 15/23/2022");
 }
 

@@ -4,62 +4,37 @@
 #include <list>
 #include "task.h"
 #include "taskSorterStrategy.hpp"
+#include "date.h"
 
-class taskSorterStrategy;
+class TaskSorterStrategy;
 
-class toDoList {
-    private:
+class ToDoList {
+    public:
         list<Task> *taskList;
 	int size=0;
-	// STRATEGY RELATED:
+	Date *today = new Date();
 	TaskSorterStrategy *strategy;
-	// END OF STARTEGY RELATED
 
     public:
-	toDoList();
-	toDoList(list<Task> *taskList);
-        //toDoList(taskSorterStrategy *s=nullptr);
-	
-	~toDoList(){
-	    delete this->strategy;
-	}	
-
-
-
+	ToDoList();
+	ToDoList(list<Task> *taskList);
+	~ToDoList();
         void addTask(Task &newTask);
-        void editTask(Task &curTask);
+        void editTask();
         void deleteTask();
         void displayTasks();
-
-	int getSize(){
-	    return size;
-	}
-	
-	list<Task> getList(){
-	    return *taskList;
-	}
-	
-	void displaySortedByID(){
-	    list<Task>::iterator it;
-	    for(int i = 0; i < 20; i++){
-	    	for(it = taskList->begin(); it != taskList->end(); ++it){
-		    if(it->getID() == i){
-		        it->displayTask();
-			cout << "\n";
-		    }	
-		}
-	    }
-	}
-	
+	void displayReminders(Date *inputCurrDate);
+	void addReminder();
+	void editReminder();
+	void setTodayDate(Date *inputDate);
+	int getSize();
+	list<Task> getList();
+	void displaySortedByID();
+	void displaySortedByPriority();
+	void displaySortedByDueDate();
 	//START OF STRATEGY RELATED:
-	void taskSorter(){
-	    this->strategy->sortTasks();
-	}
-
-	void setTaskSort(TaskSorterStrategy *newStrategy) {
-	    this->strategy = newStrategy;
-	}
-	//END OF STRATEGY RELATED
+	void taskSorter();
+	void setTaskSort(TaskSorterStrategy *newStrategy);
 };
 
 #endif // TODOLIST_HPP
