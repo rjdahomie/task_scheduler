@@ -1,15 +1,14 @@
 #include "../header/reminder.hpp"
 #include <string>
 #include "../header/task.h"
-#include "../header/date.h"
 #include <iostream>
 
 using namespace std;
 
 Reminder::Reminder(){
-    reminderTitle = "";
-    active = false;
-    remind = 0;
+	reminderTitle = "";
+	active = false;
+	remind = 0;;
 }
 
 Reminder::Reminder(string remindTitle, int remindTime, bool activity){
@@ -27,7 +26,7 @@ void Reminder::setStatus(bool newStatus){
 }
 
 void Reminder::setDay(int newTime){
-    remind = newTime;
+	remind = newTime;
 }
 
 string Reminder::getTitle(){
@@ -35,11 +34,11 @@ string Reminder::getTitle(){
 }
 
 bool Reminder::getStatus(){
-    return active;
+	return active;
 }
 
 int Reminder::getDay(){
-    return remind;
+	return remind;
 }
 
 void Reminder::displayReminder(){

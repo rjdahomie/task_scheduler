@@ -46,9 +46,10 @@ Task::Task(int inputTaskID, string inputTitle, string inputDescription, string i
 /*
 Task::~Task(){
     //Might need to go through the list and delete all one by one
-    //delete[] assigneeList;
+    delete[] assigneeList;
     delete duration;
     delete dueDate;
+    delete remind;
 }
 */
 

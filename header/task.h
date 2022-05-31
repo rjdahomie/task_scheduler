@@ -15,7 +15,6 @@ class Task {
         string description;
         string classification;
         string priority;
-        Time *duration;
         string location;
         list<Assignee> *assigneeList;
 	Reminder *remind;
@@ -24,6 +23,7 @@ class Task {
         int taskID;
         string title;
         Date *dueDate;
+	Time *duration;
 
     public:
         Task();

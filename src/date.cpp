@@ -8,6 +8,7 @@ Date::Date(){
     month = 0;
     year = 0;
 }
+
 Date::Date(int inputDay, int inputMonth, int inputYear){
     day = inputDay;
     month = inputMonth;

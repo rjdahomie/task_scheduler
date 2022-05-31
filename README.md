@@ -106,11 +106,15 @@ Change Today's Date:
 
 How this project was tested:
 
+![test](CS100FinalTest_1.PNG)
+
+![test](CS100FinalTest_2.PNG)
+
 1. Unit Tests were created to test the functions in the Date class. 
 2. Unit Tests were created to test the functions in the Assignee class.
 3. Unit Tests were created to test the functions in the Reminder class.
 4. Unit Tests were created to test the functions in the Task Class.
 5. Unit Tests were created to test the functions in the Time Class.
-6. Unit Tests were created to test the functions in the toDoList Class.
+6. Unit Tests were created to test the functions in the toDoList Class, but when dealing with the void functions, gtest became a little difficult to use, so we as a group went through our main and used valgrind to check for any errors while manipulating todolist with different values and edge cases..
 7. Valgrind was used to check for memory leaks in the entire program
  
