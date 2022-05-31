@@ -106,9 +106,9 @@ Change Today's Date:
 
 How this project was tested:
 
-![test](images/CS100FinalTest_1.png)
+![](images/CS100FinalTest_1.PNG)
 
-![test](images/CS100FinalTest_2.png)
+![](images/CS100FinalTest_2.PNG)
 
 1. Unit Tests were created to test the functions in the Date class. 
 2. Unit Tests were created to test the functions in the Assignee class.
