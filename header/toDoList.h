@@ -3,19 +3,38 @@
 
 #include <list>
 #include "task.h"
+#include "taskSorterStrategy.hpp"
+#include "date.h"
 
-class toDoList {
-    private:
+class TaskSorterStrategy;
+
+class ToDoList {
+    public:
         list<Task> *taskList;
+	int size=0;
+	Date *today = new Date();
+	TaskSorterStrategy *strategy;
 
     public:
-        toDoList();
-        toDoList(list<Task> *taskList);
-
+	ToDoList();
+	ToDoList(list<Task> *taskList);
+	~ToDoList();
         void addTask(Task &newTask);
-        void editTask(Task &curTask);
+        void editTask();
         void deleteTask();
         void displayTasks();
+	void displayReminders(Date *inputCurrDate);
+	void addReminder();
+	void editReminder();
+	void setTodayDate(Date *inputDate);
+	int getSize();
+	list<Task> getList();
+	void displaySortedByID();
+	void displaySortedByPriority();
+	void displaySortedByDueDate();
+	//START OF STRATEGY RELATED:
+	void taskSorter();
+	void setTaskSort(TaskSorterStrategy *newStrategy);
 };
 
 #endif // TODOLIST_HPP
