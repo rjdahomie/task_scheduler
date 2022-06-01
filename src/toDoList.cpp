@@ -38,13 +38,56 @@ void ToDoList::addTask(Task &newTask){
     cin.ignore();
     newTask.setPriority(inputPriority);
 
-    cout << "\nPlease enter task Due Date: " << endl;
-    cout << "Enter day: ";
-    cin >> day;
-    cout << endl << "Enter month: ";
-    cin >> month;
-    cout << endl << "Enter year: ";
-    cin >> year;
+    bool dateCheck = false;
+    time_t ttime = time(0);
+    tm *local_time = localtime(&ttime);
+    int td_day = local_time->tm_mday, td_month = 1 + local_time->tm_mon, td_year = 1900 + local_time->tm_year;
+
+    cout << "\nToday is " << td_month << "/" << td_day << "/" << td_year << endl;
+  
+    while(dateCheck == false)
+    {
+      cout << "\nPlease enter task due date: \n";
+      cout << "Enter month: ";
+      cin >> month;
+      cout << "Enter day: ";
+      cin >> day;
+      cout << "Enter year: ";
+      cin >> year;
+
+      if(year >= 999&&year <= 10000&&year >= td_year)
+      {
+        if(month >= 1&&month <= 12)
+        {
+          if((((month == 1)||(month == 3)||(month == 5)||(month == 7)||(month == 8)||(month == 10)||(month == 12))&&(day >= 1&&day <= 31))||(((month == 4)||(month == 6)||(month == 9)||(month == 11))&&(month >= 1&&day <= 30))||(((month == 2)&&(year % 4 == 0))&&(day >= 1&&day <= 29))||(((month == 2)&&(year % 4 != 0))&&(day >= 1)&&day <= 28))
+          {
+            if(year > td_year)
+            {
+              dateCheck = true;
+            }
+            else if(year == td_year)
+            {
+              if(month > td_month)
+              {
+                dateCheck = true;
+              }
+              else if(month == td_month)
+              {
+                if(day >= td_day)
+                  dateCheck = true;
+                else
+                  dateCheck = false;
+              }
+            }
+          }
+        }
+      }
+    if(dateCheck == true)
+      cout << "\nInput date is valid\n\n";
+    else
+      cout << "\nInput date is NOT valid, please re-enter\n\n";
+    }
+
     Date *tempDate = new Date(day, month, year);
     cout << "Due ";
     tempDate->displayDate();
@@ -128,13 +171,56 @@ void ToDoList::editTask(){
 	tempIt->setPriority(inputPriority);
     }
     else if (selection == 6) {
-	cout << "\nPlease enter task due date: ";
-	cout << "\nEnter day: ";
-	cin >> day;
-	cout << "\nEnter month: ";
-	cin >> month;
-	cout << "\nEnter year: ";
-	cin >> year;
+	bool dateCheck = false;
+
+  	time_t ttime = time(0);
+  	tm *local_time = localtime(&ttime);
+  	int td_day = local_time->tm_mday, td_month = 1 + local_time->tm_mon, td_year = 1900 + local_time->tm_year;
+
+  	cout << "\nToday is " << td_month << "/" << td_day << "/" << td_year << endl;
+  
+  	while(dateCheck == false)
+  	{
+    	    cout << "\nPlease enter task due date: \n";
+    	    cout << "Enter month: ";
+    	    cin >> month;
+    	    cout << "Enter day: ";
+    	    cin >> day;
+    	    cout << "Enter year: ";
+    	    cin >> year;
+
+    	    if(year >= 999&&year <= 10000&&year >= td_year)
+    	    {
+      	    if(month >= 1&&month <= 12)
+      	    {
+        	    if((((month == 1)||(month == 3)||(month == 5)||(month == 7)||(month == 8)||(month == 10)||(month == 12))&&(day >= 1&&day <= 31))||(((month == 4)||(month == 6)||(month == 9)||(month == 11))&&(month >= 1&&day <= 30))||(((month == 2)&&(year % 4 == 0))&&(day >= 1&&day <= 29))||(((month == 2)&&(year % 4 != 0))&&(day >= 1)&&day <= 28))
+        	    {
+          	    if(year > td_year)
+          	    {
+            	    	dateCheck = true;
+          	    }
+          	    else if(year == td_year)
+          	    {
+            	    	if(month > td_month)
+            	    	{
+              	    		dateCheck = true;
+            	    	}
+            	    	else if(month == td_month)
+            	    	{
+              	    	if(day >= td_day)
+                		dateCheck = true;
+              	    	else
+                		dateCheck = false;
+            	    	}
+          	    }
+        	    }
+	    }
+    	    }
+  	if(dateCheck == true)
+    		cout << "\nInput date is valid\n\n";
+  	else
+    		cout << "\nInput date is NOT valid, please re-enter\n\n";
+  	}
 	Date *tempDate = new Date(day, month, year);
 	tempIt->setDueDate(tempDate);
     }
