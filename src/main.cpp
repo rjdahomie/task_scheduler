@@ -10,6 +10,7 @@
 #include "../header/dueDateSorted.hpp"
 #include <iostream>
 #include <string>
+#include <ctime>
 
 using namespace std;
 
@@ -100,19 +101,22 @@ void mainMenu(ToDoList* inputToDoList){
 }
 
 int main(){
+    //Time library initialization:
+    time_t ttime = time(0);
+    tm *local_time = localtime(&ttime);
+
     //Current Date initialization:
-    cout << "What is the date today? " << endl;
-    int temp1, temp2, temp3;
-    cout << "Day: ";
-    cin >> temp1;
-    cout << "Month: ";
-    cin >> temp2;
-    cout << "Year: ";
-    cin >> temp3;
-    cout << endl;
-    currDate->setDay(temp1);
-    currDate->setMonth(temp2);
-    currDate->setYear(temp3);
+    cout << "Today is " << endl;
+    int monInput = 1 + local_time->tm_mon;
+    int dayInput = local_time->tm_mday;
+    int yrInput = 1900 + local_time->tm_year;
+
+    cout << "Month: " << monInput << endl;
+    cout << "Day: " << dayInput << endl;
+    cout << "Year: " << yrInput << endl << endl;
+    currDate->setMonth(monInput);
+    currDate->setDay(dayInput);
+    currDate->setYear(yrInput);
     //----------------------------------------------
     
     //TodoList initilization

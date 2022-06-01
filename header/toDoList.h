@@ -9,7 +9,7 @@
 class TaskSorterStrategy;
 
 class ToDoList {
-    public:
+    private:
         list<Task> *taskList;
 	int size=0;
 	Date *today = new Date();
