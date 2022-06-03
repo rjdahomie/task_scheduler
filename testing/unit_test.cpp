@@ -1,5 +1,4 @@
 #include "gtest/gtest.h"
-
 #include "../testing/date_test.cpp"
 #include "../testing/assignee_test.cpp"
 #include "../testing/task_test.cpp"
