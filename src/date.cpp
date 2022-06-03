@@ -101,7 +101,7 @@ int Date::difference_of_days(int day1,int month1, int year1, int day2, int month
             if(day1==day2)      //for same dates
                 return 0;
             else
-                return (day1-day2);  //for same year, same month but diff days
+                return (day2-day1);  //for same year, same month but diff days
         }
         else if(month1<month2)
         {

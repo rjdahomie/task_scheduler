@@ -10,12 +10,13 @@ class TaskSorterStrategy;
 
 class ToDoList {
     private:
-        list<Task> *taskList;
+       // list<Task> *taskList;
 	int size=0;
 	Date *today = new Date();
 	TaskSorterStrategy *strategy;
 
     public:
+	list<Task> *taskList;
 	ToDoList();
 	ToDoList(list<Task> *taskList);
 	~ToDoList();
