@@ -104,11 +104,19 @@ How this project was tested:
 
 ![](images/CS100FinalTest_2.PNG)
 
+![image](https://user-images.githubusercontent.com/85650719/171817767-20151244-ac3a-4f3c-a3be-93b302baae2e.png)
+
+![image](https://user-images.githubusercontent.com/85650719/171817898-38a5d148-dac4-4c62-9567-15fbaa0b1658.png)
+
+![image](https://user-images.githubusercontent.com/85650719/171818014-35159485-6bbe-45cf-83db-d6799528719e.png)
+
+![image](https://user-images.githubusercontent.com/85650719/171818111-ba988f1c-c6d4-4600-8ccb-014dcf4e2337.png)
+
 1. Unit Tests were created to test the functions in the Date class. 
 2. Unit Tests were created to test the functions in the Assignee class.
 3. Unit Tests were created to test the functions in the Reminder class.
 4. Unit Tests were created to test the functions in the Task Class.
 5. Unit Tests were created to test the functions in the Time Class.
-6. Unit Tests were created to test the functions in the toDoList Class, but when dealing with the void functions, gtest became a little difficult to use, so we as a group went through our main and used valgrind to check for any errors while manipulating todolist with different values and edge cases..
+6. We used manual testing to test the toDoList Class, but when dealing with the void functions, gtest became a little difficult to use, so we as a group went through our main and used valgrind to check for any errors while manipulating todolist with different values and edge cases..
 7. Valgrind was used to check for memory leaks in the entire program
  
