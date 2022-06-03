@@ -117,6 +117,9 @@ How this project was tested:
 3. Unit Tests were created to test the functions in the Reminder class.
 4. Unit Tests were created to test the functions in the Task Class.
 5. Unit Tests were created to test the functions in the Time Class.
-6. We used manual testing to test the toDoList Class, but when dealing with the void functions, gtest became a little difficult to use, so we as a group went through our main and used valgrind to check for any errors while manipulating todolist with different values and edge cases..
-7. Valgrind was used to check for memory leaks in the entire program
+6. Unit Tests were created to test the ToDoList Class. (manual testing was done since methods were void type)
+7. Unit Tests were created to test the IdSorted Class. (manual testing was done since methods were void type)
+8. Unit Tests were created to test the PrioritySorted Class. (manual testing was done since methods were void type)
+9. Unit Tests were created to test the DueDateSorted Class. (manual testing was done since methods were void type)
+10. Valgrind was used to check for memory leaks in the entire program
  
