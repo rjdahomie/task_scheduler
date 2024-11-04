@@ -1,7 +1,3 @@
-# Task Scheduler
-Authors: \<[Rasa Jahromi](https://github.com/rjdahomie)\> \<[Alexander Rabinovich](https://github.com/thecornerhob)\> \<[Nathan Nguyen](https://github.com/shipapa1)\> \<[Yongkang Guan](https://github.com/yguan039)\>
- 
-
 ## Project Description
 In the task scheduler, the user can create tasks that include a title, description, classification (e.g. personal, work, study), priority, duration and due date which are the inputs. Users can also create task lists where each list includes multiple tasks. Users can display, edit, and delete tasks and task lists. There will be features such as customizable reminders that will remind you when a task is due. You will also be able to assign people to tasks. This is an interesting project to us because as students we will get to use this task scheduler in our daily life to help us with time management. This project will be coded in C++. The libraries we used are string, iostream, lists, and ctime. We also used the google-test framework for our unit test.
 
